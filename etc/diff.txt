@@ -1,0 +1,49 @@
+14c14
+< //
+---
+> 
+29,62c29,31
+<         if(const NamedDecl *ND = dyn_cast<NamedDecl>(D))
+< 	{
+<         llvm::errs() << "top-level declaration:\n" << ND->getNameAsString() << "\"\n";
+< 	IdentifierInfo * IdInfo=ND->getIdentifier();
+< 	tok::TokenKind tk= IdInfo->getTokenID();
+< 	const char * tname=tok::getTokenName(tk);
+< 	llvm::errs()<<"token name is:";
+< 	llvm::errs().write_escaped(tname);
+< 	llvm::errs()<<"\n";
+< 	 if( const FunctionDecl * FD=dyn_cast<FunctionDecl>(D))
+<         {
+< 		llvm::errs()<<"function declaration:\n";
+<                 QualType qt=FD->getResultType();
+<                 SplitQualType sqt=qt.split();
+<                 llvm::errs().write_escaped(QualType::getAsString(sqt));
+<        		llvm::errs()<<"\n";
+< 	 }
+< 
+< 	bool isadd=IdInfo->isStr("add");
+<         if(isadd)
+< 	{
+< 	llvm::errs()<<"This is add declaration\n";
+< 	}
+< 	 if(const VarDecl *VD=dyn_cast<VarDecl>(D))
+<         {
+<                 llvm::errs()<<"Variable-declaration:\n";
+<                 QualType qt=VD->getType();
+<                 SplitQualType sqt=qt.split();
+<                 llvm::errs().write_escaped(QualType::getAsString(sqt));
+<        		llvm::errs()<<"\n";
+< 	 }
+< 	llvm::errs()<<"\n";
+< 	}//if
+<     }//for
+---
+>       if (const NamedDecl *ND = dyn_cast<NamedDecl>(D))
+>         llvm::errs() << "top-level-decl: \"" << ND->getNameAsString() << "\"\n";
+>     }
+65,66c34,35
+<   }//HandleTopLevelDecl
+< };//namespace
+---
+>   }
+> };
