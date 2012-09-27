@@ -1,0 +1,135 @@
+---------------------------------------error 190:integer overflow---------------------------------
+Detection:
+when detect integer multiplication or addtion(a*b or a+b)
+
+Assumption:
+a:type A; b:type B
+MAX_INT=Max(MAX_TypeA,MAX_TypeB);//if a and b are not belong to the same type, one of them will be converted
+MIN_INT=MIN(MIN_TypeA,MIN_TypeB);
+
+Action:
+if(a>0 && b>0 && MAX_INT-a<b)
+{
+ 	addtion overflow;
+}
+
+if(a==MIN_INT or b==MIN_INT)//if a or b is equal to MIN_INT, we could not use abs() to them.
+{
+ 	multiplication overflow;
+}
+
+else //(a!=MIN_INT && b!=MIN_INT)
+{
+	if(a>0 && b>0 &&(double)(MAX_INT/a)<b   ||  a<0 &&b<0 &&(double)(MAX_INT/abs(a))<abs(b) )
+	{
+	 multiplication overflow;
+	}
+}
+
+---------------------------------------error 191:integer underflow---------------------------------
+Error 191:Integer Underflow
+Detection:
+ when detect integer(with type of short,int,long) substraction:(a-b, a*b)
+ int-int,int-short,int-long,short-short,short-int,short-long,long-short,long-int,long-long(when judging underflow, we focus only on the type which has more bits between the two numbers because the type has less bits will automatically be converted to the other type; on the other hand, we don't need to care about the assignments, as it will be handled by integer-assignment-error detection module)
+
+Assumption:
+a:type A; b:type B
+MAX_INT=Max(MAX_TypeA,MAX_TypeB);//if a and b are not belong to the same type, one of them will be converted
+MIN_INT=MIN(MIN_TypeA,MIN_TypeB);
+
+Action:
+if(a<0&&b>0&&(INT_MIN+b)>a)
+
+ {
+    printf("Integer Addtion Overflow Happens at :%s Line :%d\n",__FILE__,__LINE__-4);
+ } 
+
+if(((a<0 && b>0 )||(a>0 &&b<0)) &&  ((float)MAX_INT+1)/abs(a))<abs(b))
+{
+ printf("multiplication underflow");
+}
+
+
+---------------------------------------error 194:signed extended error---------------------------------
+when encounter assignments u=s
+ if(typeof(u)==unsigned && typeof(s)==signed && sizeof(u)>sizeof(s) && s<0)
+ {
+   printf("signed-extened error at File: %s, Line: %d \n",__FILE__,__LINE__-5 );
+ }
+
+when encounter following functions:
+ malloc(a) strncpy(XX,XX,a),memncpy(XX,XX,a);
+ if(typeof(a)==signed && a<0 && sizeof(size_t)>sizeof(a) && a<0)
+ {
+    printf("signed-extened error at File: %s, Line: %d \n",__FILE__,__LINE__-3 );
+ }
+
+-----------------------------------error 195:signed to unsigned error---------------------------------
+when encounter assignments u=s
+if(s<0  && typeof(s)==signed && typeof(u)==unsigned)
+    printf("signed to unsigned error!");
+  
+ when encounter following functions:
+  malloc(a) strncpy(XX,XX,a),memncpy(XX,XX,a);
+ if(typeof(a)==signed && a<0)
+  {
+    printf("signed to unsigned error!" );
+  }
+
+-----------------------------------error 196:unsigned to signed error---------------------------------
+when encounter assignment i=u
+if(typeof(u)==unsigned && (u&0x80000000==0x80000000)  && typeof(i)==signed)
+    printf("unsigned to signed error!");
+
+-----------------------------------error 369:divided by zero error-----------------------------------
+when encounter operator /:
+float f=(float)i/j;
+ 
+  if(j==0)
+  {
+   printf("divide by 0 error occurs");
+  } 
+
+
+/*------------------------------------------------197(Truncation Error)----------------------------------------
+The IOC cant detect it.
+
+Manual solution:
+when detect an assignment expr
+if(bit_length(type a)<bit_length(type b))
+{
+	printf("truncation error!");
+}
+*/
+
+
+
+---------------------------------------------------------198(Byte Ordering)----------------------------------
+manual solution:
+to get both the byte ordering from the input and the local byte ordering, judge whether they are the same. If not, print out warning messages. 
+
+Is it feasible to check the byte ordering?
+
+------------------------------------------------------682(Calculation Error)--------------------------------
+
+This calculation problem contains many different types of calculation errors. As to the three examples mentioned in CWE, the first two will be covered by integer overflow and divided by zero erro. The last one, as is shown in the code, is hard to detect because we don't know exactly what the programmer wants, the only thing we could do is to assume that the conversion from a pointer type to a different pointer type is always not the programmer's hope.
+
+manual solution:
+if detect a expr which convert one type of pointer to another type pointer(cp is pointer && p is pointer && cp's type!=p's type)
+{printf("pointer conversion error")}
+
+IOC:can't detect
+---------------------------------------------------------839(Signed Comparison)
+
+This kind of error is hard to detect because it is very hard
+to find out whether the variable is used under a positive context
+or not. 
+
+manual solution:
+if encounter (malloc(a)||memcpy(XX,XX,a)||strcpy(XX,XX,a)) && a's type is signed(int, short, long, double, float...&& a<0)
+printf("malloc/memcpy/strcpy with a negative number")
+
+
+About the IOC:
+IOC can't detect it
+
