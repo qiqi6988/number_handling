@@ -1,0 +1,31 @@
+Review Notes
+------------
+
+
+ENV VAR: yes (QUERY_STRING)
+
+COPROCESS: no
+
+TECHNICAL IMPACT: segmentation fault / read application data
+
+SPECIAL CONSIDERATIONS:
+
+  - the original functionality of this TC has been severely reduced;
+    it only accepts a single command ("cmd" parameter)
+
+  - this is CGI which takes inputs from the QUERY_STRING variable
+
+
+
+IO Pairs
+--------
+
+
+GOODs: see test/transcript.txt.
+
+Good1: Dumps output to cmdout1 (see testOutput/)
+
+Good2: Dumps to cmdout3 (see testOutput/)
+
+Bad: segmentation fault; dumps UNPREDICTABLE contents to cmdout2
+

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<io_pair>
+<io_pair_category_id>2</io_pair_category_id>
+<name>TC_C_190_v503_bad2</name>
+<technical_impact_id>12</technical_impact_id>
+<timeout_execute>10</timeout_execute>
+<platform_id>3</platform_id>
+<io_groups>
+<co_process/>
+<io_parameters>
+<feature_id>7</feature_id>
+<io_values>
+<val>hamlet.txt</val>
+<val_type_id>1</val_type_id>
+<order>1</order>
+</io_values>
+<order>1</order>
+</io_parameters>
+</io_groups>
+<io_groups>
+<co_process/>
+<io_parameters>
+<feature_id>139</feature_id>
+<io_values>
+<val>116-53-6526 -95</val>
+<val_type_id>1</val_type_id>
+<order>1</order>
+</io_values>
+<order>1</order>
+</io_parameters>
+</io_groups>
+<description>A long file that overflows the line counter.</description>
+<id>2174</id>
+</io_pair>

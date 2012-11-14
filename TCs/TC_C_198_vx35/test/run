@@ -1,0 +1,10 @@
+#! /bin/sh
+
+make
+set -x
+: The CGI application never trusts its input
+CONTENT_LENGTH=12 ./unihan ../testData/other_be.txt
+CONTENT_LENGTH=12 ./unihan ../testData/other_le.txt
+: BAD CASE -- root should not be privileged.
+CONTENT_LENGTH=10 ./unihan ../testData/root_be.txt
+CONTENT_LENGTH=10 ./unihan ../testData/root_le.txt

@@ -1,0 +1,3 @@
+#! /bin/sh
+
+QUERY_STRING=cmd=7+0+-10+foo ./TC_C_195_vx32

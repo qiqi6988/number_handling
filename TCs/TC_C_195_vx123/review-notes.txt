@@ -1,0 +1,45 @@
+Review Notes
+------------
+
+
+COPROCESS: no
+
+ENV VARS: no
+
+SOURCE TAINT: command line argument
+
+TECHNICAL IMPACT: segfault
+
+SPECIAL CONSIDERATIONS: none
+
+
+
+IO Pairs
+--------
+
+See test/transcript.txt
+
+
+GOOD 1
+------
+
+Command: main 7 0 9 GoodRun1.txt
+
+Observable: testOutput/GoodRun1.txt
+
+
+GOOD 2
+------
+
+Command: main 6 ../testData/in.txt 201 312 423 510 520 530 7 0 9 GoodRun2.txt
+
+Observable: testOutput/GoodRun2.txt
+
+
+BAD
+---
+
+Command: main 7 0 -10 BadRun1.txt
+
+Observable: SEGMENTATION FAULT (BadRun1.txt has unpredictable contents)
+

@@ -1,0 +1,22 @@
+make: Nothing to be done for `all'.
++ : Server never trusts this client.
++ sleep 2
++ ./unihan 8888
++ ./sendfile 8888 ../testData/other_be.txt
+Restricted operations permitted
+
++ sleep 2
++ ./unihan 8888
++ ./sendfile 8888 ../testData/other_le.txt
+Restricted operations permitted
+
++ : BAD CASE -- root should not be privileged.
++ sleep 2
++ ./unihan 8888
++ ./sendfile 8888 ../testData/root_be.txt
+Privileged operations permitted
+
++ sleep 2
++ ./unihan 8888
++ ./sendfile 8888 ../testData/root_le.txt
+Root is a reserved user name

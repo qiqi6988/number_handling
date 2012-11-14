@@ -1,0 +1,4 @@
+This is a command-line program, so all inputs are described as sample command-
+line invocations.
+
+$ yes | ./head -n -1 > file_will_fill_up_filesystem_terminate_in_272_years.txt

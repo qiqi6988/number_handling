@@ -1,0 +1,68 @@
+Review notes
+------------
+
+COPROCESS: yes
+
+ENV VAR: no?
+
+SERVER PORT: 8888
+
+SPECIAL CONSIDERATIONS:
+
+  - Makefile and sendfile.c are in test/, not src/, but likely
+    essential for this TC
+
+
+IO Pairs
+--------
+
+See test/transcript.txt for usage.
+
+
+GOOD 1
+------
+
+Server: unihan 8888
+
+Client: sendfile 8888 ../testData/other_le.txt
+
+Output:
+---- STDOUT ----
+Restricted operations permitted
+----------------
+
+
+GOOD 2
+------
+
+Server: unihan 8888
+
+Client: sendfile 8888 ../testData/other_be.txt
+
+Output:
+---- STDOUT ----
+Restricted operations permitted
+----------------
+
+
+BAD 1
+-----
+
+Server: unihan 8888
+
+Client: sendfile 8888 ../testData/root_be.txt
+---- STDOUT ----
+Privileged operations permitted
+----------------
+
+
+BAD 2
+-----
+
+Server: unihan 8888
+
+Client: sendfile 8888 ../testData/root_le.txt
+---- STDOUT ----
+Root is a reserved user name
+----------------
+

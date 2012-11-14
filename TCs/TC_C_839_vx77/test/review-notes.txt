@@ -1,0 +1,44 @@
+Review notes
+------------
+
+
+COPROCESS: yes (jclient2 - CUSTOM - DIFFERENT than the one in the
+           ssth/coprocess directory)
+
+PORT: 9083
+
+ENV VARS: no
+
+TECHNICAL IMPACT: DoS (disk consumption)
+
+DERIVED FROM: TC_C_839_base2
+
+SPECIAL CONSIDERATIONS:
+
+  - the server dumps to an output file using the "-o" option
+
+
+Background
+----------
+
+This sets up a server that listens on port 9083.  It extracts the
+first second of data from a .wav file that it receives over a socket.
+The server is called with a "-o outputFile" option that dumps output
+to a file.
+
+Co-process is called "jclient2" - it's a MODIFICATION of the other
+jclient.  Might be specific to this particular TC.
+
+jclient2 argument is the input .wav file.  1 good and 1 bad file are
+in testData/
+
+jclient2 sends a large amount of .wav data over the socket to the
+server, which then extracts the first second of data and dumps its
+output to the file named in the "-o" option.
+
+
+IO Pairs
+--------
+
+See test/transcript.txt
+

@@ -1,0 +1,16 @@
+#! /bin/sh
+
+make
+set -x
+: When run in trusted mode '-t', root should be privileged.
+./unihan -t ../testData/other_be.txt
+./unihan -t ../testData/other_le.txt
+./unihan -t ../testData/root_be.txt
+./unihan -t ../testData/root_le.txt
+
+: When run in untrusted mode 'no -t', root should not be privileged.
+./unihan ../testData/other_be.txt
+./unihan ../testData/other_le.txt
+: BAD CASE -- root should not be privileged.
+./unihan ../testData/root_be.txt
+./unihan ../testData/root_le.txt

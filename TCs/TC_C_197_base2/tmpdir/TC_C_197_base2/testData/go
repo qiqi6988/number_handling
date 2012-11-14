@@ -1,0 +1,9 @@
+#! /bin/sh
+
+# This script shows the numeric truncation error
+
+make clean
+make lower
+echo aA1 | ./lower
+echo Programer expects ASCII input.
+awk 'BEGIN {printf("\375")}' | ./lower | od -c

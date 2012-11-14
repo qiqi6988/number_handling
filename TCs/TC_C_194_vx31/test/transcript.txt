@@ -1,0 +1,51 @@
+=================================================
+GOOD 1
+=================================================
+
+
+$ export QUERY_STRING="filename=1.java&length=70"
++ QUERY_STRING='filename=1.java&length=70'
+$ ./lines
+Status: 200
+Content-Type: text/html
+
+<html><body>benign_junk 27</body></html>
+
+
+=================================================
+GOOD 2
+=================================================
+
+$ export QUERY_STRING="filename=2.java&length=120"
++ QUERY_STRING='filename=2.java&length=120'
+$ ./lines
+Status: 200
+Content-Type: text/html
+
+<html><body>benign_junk 224</body></html>
+
+
+=================================================
+GOOD 3
+=================================================
+
+$ export QUERY_STRING="filename=long.java&length=257"
++ QUERY_STRING='filename=long.java&length=257'
+$ ./lines
+Status: 500
+Content-Type: text/html
+
+<html><body>ERROR 2</body></html>
+
+
+=================================================
+BAD
+=================================================
+
+$ export QUERY_STRING="filename=2.java&length=90"
++ QUERY_STRING='filename=2.java&length=90'
+$ ./lines
+Status: 200
+Content-Type: text/html
+
+<html><body>116-53-6526 50</body></html>

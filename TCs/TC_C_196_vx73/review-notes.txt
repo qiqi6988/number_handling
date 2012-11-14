@@ -1,0 +1,92 @@
+Review Notes
+------------
+
+COPROCESS: yes (jclient2, in coprocess directory)
+
+PORT: 11423
+
+ENV VARS: no
+
+SOURCE TAINT: socket
+
+TECHNICAL IMPACT: DoS (segfault)
+
+SPECIAL CONSIDERATIONS:
+
+  - ???
+
+
+IO Pairs
+--------
+
+See below.
+
+
+======================================================================
+GOOD 1
+======================================================================
+
+COPROCESS: jclient2 -p 11423 -i 1.java
+
+TC: ./TC_C_196_vx73 -p 11423 -o count1.out
+
+--- STDOUT ---
+Socket created.  Ready to accept on port 11423.
+WAVESRV: waiting for a connection
+WAVESRV: Connected!
+
+RESULT: 27
+--------------
+
+======================================================================
+GOOD 2
+======================================================================
+
+COPROCESS: jclient2 -p 11423 -i 3.java
+
+TC: ./TC_C_196_vx73 -p 11423 -o count3.out
+
+--- STDOUT ---
+Socket created.  Ready to accept on port 11423.
+WAVESRV: waiting for a connection
+WAVESRV: Connected!
+
+RESULT: 31
+--------------
+
+
+
+======================================================================
+GOOD 3
+======================================================================
+
+COPROCESS: jclient2 -p 11423 -i 4.java
+
+TC: ./TC_C_196_vx73 -p 11423 -o count4.out
+
+--- STDOUT ---
+Socket created.  Ready to accept on port 11423.
+WAVESRV: waiting for a connection
+WAVESRV: Connected!
+
+RESULT: 4
+--------------
+
+
+
+======================================================================
+BAD 1
+======================================================================
+
+COPROCESS: jclient2 -p 11423 -i test_pcm_1.wav
+
+TC: ./TC_C_196_vx73 -p 11423 -o count5.out
+
+Observable: segfault
+
+--- STDOUT ---
+Socket created.  Ready to accept on port 11423.
+WAVESRV: waiting for a connection
+WAVESRV: Connected!
+Segmentation fault (core dumped)
+--------------

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<io_pair>
+<io_pair_category_id>1</io_pair_category_id>
+<name>TC_C_369_vx24_good1</name>
+<technical_impact_id>1</technical_impact_id>
+<timeout_execute>10</timeout_execute>
+<platform_id>3</platform_id>
+<io_groups>
+<co_process>client slope in file 1</co_process>
+</io_groups>
+<io_groups>
+<co_process/>
+<io_parameters>
+<feature_id>133</feature_id>
+<io_values>
+<val>coprocess_stdout1873</val>
+<val_type_id>1</val_type_id>
+<order>1</order>
+</io_values>
+<order>1</order>
+</io_parameters>
+</io_groups>
+<description/>
+<id>1873</id>
+</io_pair>

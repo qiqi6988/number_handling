@@ -1,0 +1,24 @@
+Review Notes
+------------
+
+COPROCESS: no
+
+ENV VARS: no
+
+TECHNICAL IMPACT: DoS (CPU / file consumption)
+
+SPECIAL CONSIDERATIONS:
+
+  - this TC needs some work to become VALID; it can generate massive
+    output.  rlimits or something similar should probably be enforced.
+    Or, could redirect the output to /dev/null.  Or, could choose a
+    very negative number.
+
+  - For early testing, set TIMEOUT to 3 to limit scope of file dump
+
+
+IO Pairs
+--------
+
+Program writes to STDOUT
+

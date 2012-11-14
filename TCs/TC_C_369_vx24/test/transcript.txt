@@ -1,0 +1,21 @@
+dhaynes@ovaldi-rhel5-x86 ~/ss_test_cases/369/24 $ ./tc_c_369_vx24_server &
+[1] 27384
+++ /etc/sysconfig/bash-prompt-xterm
++ ./tc_c_369_vx24_server
+dhaynes@ovaldi-rhel5-x86 ~/ss_test_cases/369/24 $ ./tc_c_369_vx24_client slope in file 1
++ ./tc_c_369_vx24_client slope in file 1
+y = (1.000000)x + 1.000000
+++ /etc/sysconfig/bash-prompt-xterm
+dhaynes@ovaldi-rhel5-x86 ~/ss_test_cases/369/24 $ ./tc_c_369_vx24_client slope in file 2
++ ./tc_c_369_vx24_client slope in file 2
+y = (0.000000)x + 2.000000
+++ /etc/sysconfig/bash-prompt-xterm
+dhaynes@ovaldi-rhel5-x86 ~/ss_test_cases/369/24 $ ./tc_c_369_vx24_client slope in file 3
++ ./tc_c_369_vx24_client slope in file 3
+y = (0.325000)x + 12.100000
+++ /etc/sysconfig/bash-prompt-xterm
+dhaynes@ovaldi-rhel5-x86 ~/ss_test_cases/369/24 $ ./tc_c_369_vx24_client slope in file 4
++ ./tc_c_369_vx24_client slope in file 4
+
+[1]+  Floating point exception./tc_c_369_vx24_server
+++ /etc/sysconfig/bash-prompt-xterm

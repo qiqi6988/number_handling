@@ -1,0 +1,20 @@
+make: Nothing to be done for `all'.
++ : When run in trusted mode -t, root should be privileged.
++ ./unihan -t ../testData/other_be.txt
+Restricted operations permitted
++ ./unihan -t ../testData/other_le.txt
+Restricted operations permitted
++ ./unihan -t ../testData/root_be.txt
+Privileged operations permitted
++ ./unihan -t ../testData/root_le.txt
+Privileged operations permitted
++ : When run in untrusted mode 'no -t,' root should not be privileged.
++ ./unihan ../testData/other_be.txt
+Restricted operations permitted
++ ./unihan ../testData/other_le.txt
+Restricted operations permitted
++ : BAD CASE -- root should not be privileged.
++ ./unihan ../testData/root_be.txt
+Privileged operations permitted
++ ./unihan ../testData/root_le.txt
+Root is a reserved user name

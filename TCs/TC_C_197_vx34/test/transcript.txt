@@ -1,0 +1,21 @@
+rm TC_C_197_vx34 lower.o query.o
+gcc -std=gnu99 -O0 -fno-stack-protector   -c -o lower.o ../src/lower.c
+gcc -std=gnu99 -O0 -fno-stack-protector   -c -o query.o ../src/query.c
+gcc -std=gnu99 -z execstack -o TC_C_197_vx34 lower.o query.o -lXtst -lXrandr -lX11 -lssl
++ : Good output -- lowercase in goes to lowercase out
++ QUERY_STRING='lower=a&upper=d'
++ ./TC_C_197_vx34 output1
++ echo
++ cat output1 -
+abc
++ : Good output -- uppercase in goes to lowercase out
++ QUERY_STRING='lower=A&upper=D'
++ ./TC_C_197_vx34 output2
++ echo
++ cat output2 -
+abc
++ : Bad output -- non-ASCII input extracts the secret
++ QUERY_STRING='lower=%80&upper=%ff'
++ ./TC_C_197_vx34 output3
++ strings output3
+this is a secret value

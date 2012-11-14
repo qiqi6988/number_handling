@@ -1,0 +1,20 @@
+Review Notes
+------------
+
+COPROCESS: no
+
+ENV VAR: yes (CONTENT_LENGTH)
+
+SOURCE TAINT: file contents
+
+SPECIAL CONSIDERATIONS:
+
+  - this TC accepts a CONTENT_LENGTH environment variable that it uses
+    for allocating memory, but the source taint is in file contents.
+
+
+IO Pairs
+--------
+
+See test/transcript.txt
+

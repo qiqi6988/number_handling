@@ -1,0 +1,69 @@
+Review Notes
+------------
+
+COPROCESS: no
+
+ENV VARS: no
+
+TECHNICAL IMPACT: Bypass security
+
+SPECIAL CONSIDERATIONS:
+
+  - source code is in both src/ and test/
+
+  - the command lines and outputs look very similar.  Most critical is
+    the "-t" switch (sometimes on, sometimes off)
+
+
+IO Pairs
+--------
+
+See below, also covered in test/transcript.txt.
+
+
+Good 1
+------
+
+Command: unihan -t ../testData/other_be.txt
+
+Output (stdout): Restricted operations permitted
+
+
+Good 2
+------
+
+Command: unihan -t ../testData/root_le.txt
+
+Output (stdout): Privileged operations permitted
+
+
+Good 3
+------
+
+Command: unihan ../testData/other_be.txt
+
+Output (stdout): Restricted operations permitted
+
+
+Good 4
+------
+
+Command: unihan ../testData/other_le.txt
+
+Output (stdout): Restricted operations permitted
+
+
+Bad 1
+------
+
+Command: unihan ../testData/root_be.txt
+
+Output (stdout): Privileged operations permitted
+
+
+Bad 2
+-----
+
+Command: unihan ../testData/root_le.txt
+
+Output (stdout): Root is a reserved user name

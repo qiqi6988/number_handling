@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<io_pair>
+<io_pair_category_id>1</io_pair_category_id>
+<name>TC_C_194_vx80_good</name>
+<technical_impact_id>1</technical_impact_id>
+<timeout_execute>10</timeout_execute>
+<platform_id>3</platform_id>
+<io_groups>
+<co_process>chmod 777 client; ./client 9877 1.java 70</co_process>
+<io_parameters>
+<feature_id>7</feature_id>
+<io_values>
+<val>9877</val>
+<val_type_id>1</val_type_id>
+<order>1</order>
+</io_values>
+<order>1</order>
+</io_parameters>
+</io_groups>
+<io_groups>
+<co_process/>
+<io_parameters>
+<feature_id>133</feature_id>
+<io_values>
+<val>1Out.bin</val>
+<val_type_id>1</val_type_id>
+<order>1</order>
+</io_values>
+<order>1</order>
+</io_parameters>
+</io_groups>
+<description/>
+<id>2063</id>
+</io_pair>

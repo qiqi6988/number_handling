@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project>
+<cwe_entry_id>196</cwe_entry_id>
+<derived_from_id>0</derived_from_id>
+<name>TC_C_196_vx73</name>
+<language_id>2</language_id>
+<generation_method_id>6</generation_method_id>
+<run_command>Release/TC_C_196_vx73 </run_command>
+<build_command>make</build_command>
+<run_directory/>
+<build_directory/>
+<line_count>499</line_count>
+<annotations>
+<name>DATA_FLOW:ADDRESS_AS_A_FUNCTION_RETURN_VALUE</name>
+<filename>TC_C_196_vx73\src\countlines.c</filename>
+<lineNumber>273</lineNumber>
+</annotations>
+<description/>
+<id>1727</id>
+</project>

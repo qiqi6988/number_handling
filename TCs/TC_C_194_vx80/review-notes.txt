@@ -1,0 +1,25 @@
+Review Notes
+------------
+
+
+COPROCESS: yes (but not socket-based)
+
+PORT: not applicable (uses shared memory)
+
+ENV VARS: none
+
+TECHNICAL IMPACT: read memory
+
+SPECIAL CONSIDERATIONS:
+
+  - the source taint is shared memory, and a "lockfile" is used
+    between "client" and "server" to coordinate writes to shared
+    memory
+
+
+
+IO Pairs
+--------
+
+See src/README - there are 2 goods and 2 bads
+

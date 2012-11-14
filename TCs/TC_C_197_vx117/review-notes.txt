@@ -1,0 +1,15 @@
+test/transcript.txt shows SOME usage but not all
+
+test/run shows some goods/bads.  QUERY_STRING is the source taint, so
+you set it to different values for each good/bad.  testOutput/
+contains 1 bad and 1 good output.
+
+This is called "CGI" but this executes as a local program, so there's
+no client or server.
+
+A "real" CGI *should* dump only to stdout, but lower.c apparently
+dumps to a file called output.  That's the file referenced in
+test/run.
+
+Technical Impact is read application data.
+

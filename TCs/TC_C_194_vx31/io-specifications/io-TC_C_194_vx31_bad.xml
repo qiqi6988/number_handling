@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<io_pair>
+<io_pair_category_id>2</io_pair_category_id>
+<name>TC_C_194_vx31_bad</name>
+<technical_impact_id>4</technical_impact_id>
+<timeout_execute>10</timeout_execute>
+<platform_id>3</platform_id>
+<io_groups>
+<co_process/>
+<io_parameters>
+<feature_id>8</feature_id>
+<io_values>
+<val>QUERY_STRING</val>
+<val_type_id>1</val_type_id>
+<order>1</order>
+</io_values>
+<io_values>
+<val>filename=2.java&amp;length=90</val>
+<val_type_id>1</val_type_id>
+<order>2</order>
+</io_values>
+<order>1</order>
+</io_parameters>
+</io_groups>
+<io_groups>
+<co_process/>
+<io_parameters>
+<feature_id>139</feature_id>
+<io_values>
+<val>Status: 200&#13;
+Content-Type: text/html&#13;
+&#13;
+&lt;html&gt;&lt;body&gt;116-53-6526 50&lt;/body&gt;&lt;/html&gt;</val>
+<val_type_id>1</val_type_id>
+<order>1</order>
+</io_values>
+<order>1</order>
+</io_parameters>
+</io_groups>
+<description/>
+<id>2086</id>
+</io_pair>

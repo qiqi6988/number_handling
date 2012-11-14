@@ -1,0 +1,14 @@
+#! /bin/sh
+make clean
+make
+prog=$(basename $(dirname $(pwd)))
+set -x
+: Good output -- lowercase in goes to lowercase out
+LOWER_TEXT=a UPPER_TEXT=d ./$prog output1
+echo | cat output1 -
+: Good output -- uppercase in goes to lowercase out
+LOWER_TEXT=A UPPER_TEXT=D ./$prog output2
+echo | cat output2 -
+: Bad output -- non-ASCII input extracts the secret
+LOWER_TEXT=%80 UPPER_TEXT=%ff ./$prog output3
+strings output3

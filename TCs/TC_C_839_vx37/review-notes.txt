@@ -1,0 +1,41 @@
+Review Notes
+------------
+
+COPROCESS: yes (should already exist in ssth/coprocess/jclient2/src/jclient2.c)
+
+ENV VARS: no
+
+PORT: 9084  (changeable with the -p option)
+
+Technical Impact: DoS (disk consumption)
+
+SPECIAL CONSIDERATIONS:
+
+  - this uses the coprocess "jclient2" which is already in ssth SVN
+
+
+
+IO Pairs
+--------
+
+GOOD
+----
+
+This writes output to test_pcm_1.wav
+
+COPROCESS: ./jclient2 test_pcm_good.wav
+
+TC: ./TC_C_839_vx37 -o test_pcm_1.wav &
+
+Observable: compare to testOutput/test_pcm_1.wav
+
+
+BAD
+---
+
+COPROCESS: ./jclient2 test_pcm_bad.wav
+
+TC: ./TC_C_839_vx37 -o test_pcm_2.wav
+
+Observable: compare test_pcm_2.wav to testOutput/test_pcm_2.wav
+

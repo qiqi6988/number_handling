@@ -1,0 +1,25 @@
+Review Notes
+------------
+
+
+COPROCESS: no
+
+SOURCE TAINT: CGI
+
+TECHNICAL IMPACT: read application data
+
+ENV VARS: QUERY_STRING
+
+SPECIAL CONSIDERATIONS
+
+  - this is a CGI program and as such, reads from QUERY_STRING and
+    prints to STDOUT
+
+
+
+IO Pairs
+--------
+
+3 goods and 1 bad.  See test/transcript.txt.
+
+

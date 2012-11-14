@@ -1,0 +1,23 @@
+rm TC_C_197_vx74 lower.o
+gcc -std=gnu99 -O0 -fno-stack-protector   -c -o lower.o ../src/lower.c
+gcc -std=gnu99 -z execstack -o TC_C_197_vx74 lower.o -lXtst -lXrandr -lX11 -lssl
++ : Good output -- lowercase in goes to lowercase out
++ LOWER_TEXT=a
++ UPPER_TEXT=d
++ ./TC_C_197_vx74 output1
++ echo
++ cat output1 -
+abc
++ : Good output -- uppercase in goes to lowercase out
++ LOWER_TEXT=A
++ UPPER_TEXT=D
++ ./TC_C_197_vx74 output2
++ echo
++ cat output2 -
+abc
++ : Bad output -- non-ASCII input extracts the secret
++ LOWER_TEXT=%80
++ UPPER_TEXT=%ff
++ ./TC_C_197_vx74 output3
++ strings output3
+this is a secret value

@@ -1,0 +1,8 @@
+#! /bin/sh
+# Encode root or first arg as UTF-32 in big endian
+# Output to standard out.
+# To check output, pipe the output to iconv -f UTF-16 -t UTF-8 | od -c
+
+echo -n ${1:-root} | iconv -f UTF-8 -t UTF-32BE \
+    | awk '{printf("\0\0\376\377%s",$0)}'
+

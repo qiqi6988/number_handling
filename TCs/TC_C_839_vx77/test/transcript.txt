@@ -1,0 +1,38 @@
+== Good ==
+
+Observable: file contents of out_pcm_1.wav
+
+Command: ./src/TC_C_839_vx77 -o testOutput/out_pcm_1.wav
+-----
+Socket created.  Ready to accept.
+WAVESRV: waiting for a connection
+WAVESRV: Connected!
+Output size 16000
+-----
+
+COPROCESS: ./src/jclient2 testData/test_pcm_good.wav
+
+---- stdout ----
+open input file: testData/test_pcm_good.wav
+----------------
+
+== Bad ==
+
+Observable: best observable is probably server stdout - key is the
+output size 16400384.  File contents of testOutput/out_pcm_2.wav might
+also be predictable but that's a huge file.
+
+Command: ./src/TC_C_839_vx77 -o testOutput/out_pcm_2.wav
+----- stdout -----
+Socket created.  Ready to accept.
+WAVESRV: waiting for a connection
+WAVESRV: Connected!
+Output size 16400384
+------------------
+
+COPROCESS: ./src/jclient2 testData/test_pcm_bad.wav
+--- stdout ---
+ECHOCLNT: Tried to connect, now waiting
+open input file: testData/test_pcm_bad.wav
+--------------
+

@@ -1,0 +1,31 @@
+Review Notes
+------------
+
+This is similar to another 197 variant by John Ramsdell.
+
+WARNING: this would hopefully be easy for getting into Eclipse but
+might need some changes to become VALID.  See below.
+
+See test/transcript.txt:
+
+  - The QUERY_STRING is an environment variable setting
+
+  - the use of "strings" on output3 is not required; you just compare
+    output3 to the expected output file.
+
+Technical Impact: read application data
+
+
+Possible issues with VALID
+--------------------------
+
+output3 MUST be treated as binary, not text.
+
+For the bad (output3 file), this TC reads out-of-bounds memory in a
+cool way, but memory contents might be unpredictable.  Jay Carlson and
+John did some tricks to try and guarantee that the memory always
+contains NULLs.  In the source code, the keep[] variable is wrapped
+between count[] and tbl[] which seem to contain only NUL bytes on my
+Red Hat box; if this is consistent across env's then the output3 file
+would be consistent.
+

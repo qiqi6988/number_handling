@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<io_pair>
+<io_pair_category_id>1</io_pair_category_id>
+<name>TC_C_196_vx73_good3</name>
+<technical_impact_id>1</technical_impact_id>
+<timeout_execute>10</timeout_execute>
+<platform_id>3</platform_id>
+<io_groups>
+<co_process>jclient2 -p 11423 -i 4.java</co_process>
+<io_parameters>
+<feature_id>7</feature_id>
+<io_values>
+<val>-p 11423 -o count4.out</val>
+<val_type_id>1</val_type_id>
+<order>1</order>
+</io_values>
+<order>1</order>
+</io_parameters>
+</io_groups>
+<io_groups>
+<co_process/>
+<io_parameters>
+<feature_id>139</feature_id>
+<io_values>
+<val>RESULT: 4</val>
+<val_type_id>1</val_type_id>
+<order>1</order>
+</io_values>
+<order>1</order>
+</io_parameters>
+</io_groups>
+<description/>
+<id>2142</id>
+</io_pair>

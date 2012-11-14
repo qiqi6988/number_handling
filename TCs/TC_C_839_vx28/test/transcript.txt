@@ -1,0 +1,16 @@
+Note that there is no output file included for the bad test case run,
+because it grows very quickly, in just 10 seconds on my test linux
+virtual machine, the output file was 500M.
+
++ : Good run 1
+$ ../src/head ../testData/input1.txt > output.txt.good1
+
++ : Good run 2
+$ ../src/head -n 20 ../testData/input1.txt > output.txt.good2
+
++ : Good run 3
+$ ../src/head -n 100 ../testData/input1.txt > output.txt.good3
+
++ : Bad run 1
+$ ../src/head -n -1 ../testData/input2.txt > output.txt.bad1
++ ../src/head -n -1 ../testData/input2.txt

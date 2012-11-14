@@ -1,0 +1,63 @@
+
+=========================================================
+GOOD 1
+=========================================================
+
+ENV VAR: CONTENT_LENGTH=12
+
+TC: ./unihan ../testData/other_be.txt
+
+------ stdout ------
+Content-type: text/plain; charset=us-ascii
+Content-length: 32
+
+Restricted operations permitted
+--------------------
+
+
+=========================================================
+GOOD 2
+=========================================================
+
+ENV VAR: CONTENT_LENGTH=12
+
+TC: ./unihan ../testData/other_le.txt
+
+------ stdout ------
+Content-type: text/plain; charset=us-ascii
+Content-length: 32
+
+Restricted operations permitted
+--------------------
+
+
+=========================================================
+BAD 1
+=========================================================
+
++ : BAD CASE -- root should not be privileged.
+
+
+ENV VAR: CONTENT_LENGTH=10
+
+TC: ./unihan ../testData/root_be.txt
+
+------ stdout ------
+Content-type: text/plain; charset=us-ascii
+Content-length: 32
+
+Privileged operations permitted
+--------------------
+
+
+=========================================================
+BAD 2
+=========================================================
+
+ENV VAR: CONTENT_LENGTH=10
+
+TC: ./unihan ../testData/root_le.txt
+
+------ stdout ------
+Root is a reserved user name
+--------------------

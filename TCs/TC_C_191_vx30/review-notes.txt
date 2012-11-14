@@ -1,0 +1,21 @@
+Review Notes
+------------
+
+ENV VARS: QUERY_STRING (see transcript)
+
+TECHNICAL IMPACT: segmentation fault
+
+COPROCESS: no
+
+
+SPECIAL CONSIDERATIONS:
+
+  - this is a CGI program, so it reads from QUERY_STRING and writes to
+    STDOUT.
+
+
+IO Pairs
+--------
+
+See transcript.
+

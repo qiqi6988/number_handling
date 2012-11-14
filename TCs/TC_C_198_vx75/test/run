@@ -1,0 +1,10 @@
+#! /bin/sh
+
+make
+set -x
+: Server never trusts this client.
+./unihan 8888 & sleep 2; ./sendfile 8888 ../testData/other_be.txt
+./unihan 8888 & sleep 2; ./sendfile 8888 ../testData/other_le.txt
+: BAD CASE -- root should not be privileged.
+./unihan 8888 & sleep 2; ./sendfile 8888 ../testData/root_be.txt
+./unihan 8888 & sleep 2; ./sendfile 8888 ../testData/root_le.txt

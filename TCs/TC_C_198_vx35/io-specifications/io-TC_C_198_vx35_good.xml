@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<io_pair>
+<io_pair_category_id>1</io_pair_category_id>
+<name>TC_C_198_vx35_good</name>
+<technical_impact_id>1</technical_impact_id>
+<timeout_execute>10</timeout_execute>
+<platform_id>3</platform_id>
+<io_groups>
+<co_process/>
+<io_parameters>
+<feature_id>8</feature_id>
+<io_values>
+<val>CONTENT_LENGTH</val>
+<val_type_id>1</val_type_id>
+<order>1</order>
+</io_values>
+<io_values>
+<val>12</val>
+<val_type_id>1</val_type_id>
+<order>2</order>
+</io_values>
+<order>1</order>
+</io_parameters>
+<io_parameters>
+<feature_id>7</feature_id>
+<io_values>
+<val>other_be.txt</val>
+<val_type_id>1</val_type_id>
+<order>1</order>
+</io_values>
+<order>2</order>
+</io_parameters>
+</io_groups>
+<io_groups>
+<co_process/>
+<io_parameters>
+<feature_id>139</feature_id>
+<io_values>
+<val>Content-type: text/plain; charset=us-ascii
+Content-length: 32
+
+Restricted operations permitted</val>
+<val_type_id>1</val_type_id>
+<order>1</order>
+</io_values>
+<order>1</order>
+</io_parameters>
+</io_groups>
+<description/>
+<id>2125</id>
+</io_pair>
