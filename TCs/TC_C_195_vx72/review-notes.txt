@@ -1,0 +1,60 @@
+Review Notes
+------------
+
+
+COPROCESS: yes ("./oneshotclt")
+
+PORT: 8989
+
+ENV VARS: no
+
+TECHNICAL IMPACT: DoS (memory consumption)
+
+SPECIAL CONSIDERATIONS:
+
+  - the technical impact might vary depending on memory availability.
+    If there's insufficient memory, then calloc will fail; if there's
+    enough, then the program will consume lots of memory and probably
+    time out while doing a very large computation.
+
+
+IP Pairs
+--------
+
+See test/transcript.txt
+
+
+GOOD
+----
+
+Observable: stdout
+
+Server: ./TC_C_195_vx72 8989
+
+Coprocess: ./oneshotclt -- 8989 22
+
+--- stdout ---
+41
+
+--------------
+
+
+
+BAD
+---
+
+Observable: stdout  (OR application hang)
+
+Server: ./TC_C_195_vx72 8989
+
+Coprocess: ./oneshotclt -- 8989 22
+
+--- stdout ---
+ERROR: Calloc memory allocation failed
+-1
+--------------
+
+[*** NOTE: depending on available memory, the giant calloc() in
+./TC_C_195_vx72 might succeed, in which case the program will
+timeout. ***]
+

@@ -1,0 +1,13 @@
+#! /bin/sh
+
+make
+
+set -x
+: Good run
+./TC_C_195_vx72 8989 &
+sleep 2
+./oneshotclt -- 8989 22
+: Bad run
+./TC_C_195_vx72 8989 &
+sleep 2
+./oneshotclt -- 8989 -9
