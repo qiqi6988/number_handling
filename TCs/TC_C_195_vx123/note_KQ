@@ -1,0 +1,39 @@
+Files:
+io-specification: good and bad input
+review-notes:how to invoke
+test: transcript.txt how to invoke
+testData:input data
+testOutput: output file
+metaData.xml: structure
+
+makefile:
+makefile_gcc: make -f makefile_gcc/ make clean -f makefile_gcc
+make -f makefile_ioc/ make clean -f makefile_ioc
+
+Run(gcc):
+./cmdInterpreter 7 0 9 ../QKtest/Good1.txt
+ diff Good1.txt ../testOutput/GoodRun1.txt: the same
+
+./cmdInterpreter  6 ../testData/in.txt 201 312 423 510 520 530 7 0 9 ../QKtest/Good2.txt
+diff ../QKtest/Good2.txt ../testOutput/GoodRun2.txt: the same
+
+./cmdInterpreter  7 0 -10 ../QKtest/Bad1.txt
+diff ../QKtest/Bad1.txt ../testOutput/BadRun1.txt: different
+
+
+
+Run(ioc):
+./cmdInterpreter_ioc 7 0 9 ../QKtest/Good1_ioc.txt
+ diff ../QKtest/Good1_ioc.txt ../testOutput/GoodRun1.txt: the same
+
+./cmdInterpreter  6 ../testData/in.txt 201 312 423 510 520 530 7 0 9 ../QKtest/Good2.txt
+diff ../QKtest/Good2.txt ../testOutput/GoodRun2.txt: the same
+
+./cmdInterpreter_ioc  7 0 -10 ../QKtest/Bad1_ioc.txt: detected
+cmdInterpreter.c:230:10: runtime error: value lost in conversion of '-10' from 'int' (int) to 'unsigned int' (unsigned int)
+Illegal instruction (core dumped)
+
+diff ../QKtest/Bad1_ioc.txt ../testOutput/BadRun1.txt: different
+
+
+

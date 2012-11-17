@@ -1,0 +1,12 @@
+cmdInterpreter.c:230:10: runtime error: value lost in conversion of '-10' from 'int' (int) to 'unsigned int' (unsigned int)
+Illegal instruction (core dumped)
+
+code:
+end = getInteger(argv[holder + 2]);
+getInteger returns type int while end is of type int
+
+
+solution:
+if(getInteger(argv[holder + 2])<0)
+{printf("input error");exit(1)}
+end=(argv[holder + 2]);
