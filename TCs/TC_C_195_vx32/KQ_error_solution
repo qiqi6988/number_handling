@@ -3,10 +3,15 @@ cmdInterpreter.c:290:13: runtime error: value lost in conversion of '-10' from '
 
 code:
 end = getInteger(argv[holder + 2]);
-getInteger returns type int while end is of type unsigned int
+getInteger returns type int while end is of type unsigned int, which makes end a very large number
+copyRegs(registers, start, end, otfil) will call
+copyReg(registers, i, end, otfil) 
+
+copyReg(registers, i, end, otfil) will call copyRegs(registers, ++i, end, otfil) recursively until i>end.
+
+However, end is very large, it will cause stack overflow
+
 
 
 solution:
-if(getInteger(argv[holder + 2])<0)
-{printf("input error");exit(1)}
-end=(argv[holder + 2]);
+limit end to a relatively small number, and judge whether it exceeds the upbound first.
