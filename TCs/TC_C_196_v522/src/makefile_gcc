@@ -1,0 +1,6 @@
+countlines: countlines.o
+	gcc -o countlines countlines.o
+countlines.o: countlines.c 
+	gcc -c countlines.c 
+clean: 
+	rm -f *.o

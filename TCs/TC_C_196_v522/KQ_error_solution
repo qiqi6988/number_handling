@@ -1,0 +1,23 @@
+countlines.c:73:40: runtime error: value lost in conversion of '-1' from 'int' (int) to 'unsigned char' (unsigned char)
+
+code:
+int good = (int ) ( ( unsigned char ) checkargs( argc, argv ) );
+checkargs return type of int(-1), and this value becomes a relatively large one
+ when converted to type unsigned char, thus good is a relatively large number.
+
+silly_array = calloc ( nsquaredplusone ( good ), sizeof ( int ) );
+silly_array's length is larger than 100.(good*good+1)
+
+when it comes to the following codes:
+  if ( j > 100 )
+              {
+                while ( 0 == 0 )
+                  {
+                    j++;
+                    j--;
+                  }
+              }
+The larger length will make it run forever.
+
+solution:
+check the silly_array_length first and determine whether it is larger than 100

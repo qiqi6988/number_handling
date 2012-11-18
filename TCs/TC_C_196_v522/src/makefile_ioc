@@ -1,0 +1,8 @@
+
+
+countlines_ioc: countlines.o
+	clang -o countlines_ioc countlines.o -fioc-abort-on-error -fioc-explicit-conversion -fioc-implicit-conversion -fioc-unsigned -fioc-signed -fioc-shifts -fioc-strict-shifts
+countlines.o: countlines.c 
+	clang -c countlines.c -fioc-abort-on-error -fioc-explicit-conversion -fioc-implicit-conversion -fioc-unsigned -fioc-signed -fioc-shifts -fioc-strict-shifts
+clean: 
+	rm -f *.o
