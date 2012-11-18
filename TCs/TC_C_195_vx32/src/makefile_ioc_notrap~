@@ -1,0 +1,9 @@
+cmdInterreter_ioc_notrap: query.o cmdInterpreter.o
+	clang -o cmdInterpreter_ioc_notrap cmdInterpreter.o query.o  -fioc-explicit-conversion -fioc-implicit-conversion -fioc-unsigned -fioc-signed -fioc-shifts -fioc-strict-shifts
+cmdInterpreter.o: cmdInterpreter.c
+	clang -c cmdInterpreter.c query.h  -fioc-explicit-conversion -fioc-implicit-conversion -fioc-unsigned -fioc-signed -fioc-shifts -fioc-strict-shifts
+query.o: query.c
+	clang -c query.c query.h  -fioc-explicit-conversion -fioc-implicit-conversion -fioc-unsigned -fioc-signed -fioc-shifts -fioc-strict-shifts
+
+clean: 
+	rm -f *.o

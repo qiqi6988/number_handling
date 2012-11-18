@@ -1,0 +1,30 @@
+
+
+makefile:
+makefile_gcc: make -f makefile_gcc/ make clean -f makefile_gcc
+makefile_ioc:make -f makefile_ioc/ make clean -f makefile_ioc
+makefile_ioc_notrap:make -f makefile_ioc_notrap/ make clean -f makefile_ioc_notrap
+
+Run(gcc):
+bash ./run.sh
+diff ../QKtest/Good_gcc.txt ../testOutput/cmdout1: the same
+diff ../QKtest/Good2_gcc.txt ../testOutput/cmdout3: the same
+bash ./runbad.sh (no segment fault)
+diff ../QKtest/Bad_gcc.txt ../testOutput/cmdout2: different
+
+
+
+Run(ioc):
+bash ./run_ioc.sh
+diff ../QKtest/Good_ioc.txt ../testOutput/cmdout1: the same
+diff ../QKtest/Good2_ioc.txt ../testOutput/cmdout3: the same
+
+bash ./runbad_ioc.sh: detected
+cmdInterpreter.c:290:13: runtime error: value lost in conversion of '-10' from 'int' (int) to 'unsigned int' (unsigned int)
+if trapped: No output file
+
+
+bash ./runbad_ioc_notrap.sh
+diff ../QKtest/Bad_ioc_notrap.txt ../testOutput/cmdout2: different
+
+
