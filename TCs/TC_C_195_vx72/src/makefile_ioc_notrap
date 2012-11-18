@@ -1,0 +1,11 @@
+
+recaman_ioc_notrap: oneshotsrv.o recaman.o
+	clang -o recaman_ioc_notrap recaman.o oneshotsrv.o  -fioc-explicit-conversion -fioc-implicit-conversion -fioc-unsigned -fioc-signed -fioc-shifts -fioc-strict-shifts
+
+recaman.o: recaman.c
+	clang -c recaman.c  -fioc-explicit-conversion -fioc-implicit-conversion -fioc-unsigned -fioc-signed -fioc-shifts -fioc-strict-shifts
+
+oneshotsrv.o: oneshotsrv.c 
+	clang -c oneshotsrv.c  -fioc-explicit-conversion -fioc-implicit-conversion -fioc-unsigned -fioc-signed -fioc-shifts -fioc-strict-shifts
+clean: 
+	rm -f *.o

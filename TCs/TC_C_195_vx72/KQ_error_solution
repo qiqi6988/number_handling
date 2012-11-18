@@ -1,0 +1,11 @@
+recaman.c:59:18: runtime error: value lost in conversion of '-9' from 'int' (int) to 'unsigned int' (unsigned int)
+
+code:
+value[place] = (int)strtol(buf, &end, 10); 
+strtol returns type long int while value is of type unsigned int array
+
+
+solution:
+if((int)strtol(buf, &end, 10)<0)
+{printf("input error");exit(1)}
+value[place] = (int)strtol(buf, &end, 10); 
