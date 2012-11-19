@@ -1,0 +1,10 @@
+Good ones for gcc and ioc are the same with the given output
+
+Bad ones for gcc are the same with the given output(infinite running and no output)
+
+Bad ones for ioc are trapped with the error below:
+countlines.c:267:42: runtime error: value lost in conversion of '-10' from 'int' (int) to 'unsigned int' (unsigned int)
+Illegal instruction (core dumped)
+
+Analysis:
+
