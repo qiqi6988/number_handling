@@ -1,0 +1,11 @@
+IOC Outputs:
+CountLinesServer.c:325:42: runtime error: value lost in conversion of '-9' from 'int' (int) to 'unsigned int' (unsigned int)
+Illegal instruction (core dumped)
+
+Codes:
+remaining_chars = ( unsigned int ) (max_line_length - place);
+max_line_length is relatively less than the actual maximum line length of the inputfile.
+
+Solution:
+remove (unsigned int)
+

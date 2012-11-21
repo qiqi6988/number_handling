@@ -1,0 +1,9 @@
+CountLinesServer_ioc: CountLinesServer.o
+	clang -o CountLinesServer_ioc CountLinesServer.o  -fioc-abort-on-error -fioc-explicit-conversion -fioc-implicit-conversion -fioc-unsigned -fioc-signed -fioc-shifts -fioc-strict-shifts 
+CountLinesServer.o: CountLinesServer.c
+	clang -c CountLinesServer.c  -fioc-abort-on-error -fioc-explicit-conversion -fioc-implicit-conversion -fioc-unsigned -fioc-signed -fioc-shifts -fioc-strict-shifts
+
+clean: 
+	rm -f *.o
+
+

@@ -1,0 +1,72 @@
+GCC:
+GOOD1:
+./client 9876 1.java 70
+Output being written to '1Out.bin'.
+Server response is benign_junk 27.
+
+./CountLinesServer 9876
+Opened '1.java'
+
+
+GOOD2:
+./client 9876 2.java 120
+Output being written to '2Out.bin'.
+Server response is benign_junk 224.
+
+./CountLinesServer 9876
+
+BAD1:
+./client 9876 long.java 257
+Output being written to 'longOut.bin'.
+Server response is 116-53-6526 0.
+
+./CountLinesServer 9876
+
+
+BAD2:
+./client 9876 2.java 90
+Output being written to '2Out.bin'.
+Server response is 116-53-6526 50.
+
+./CountLinesServer 9876
+
+
+IOC:
+GCC:
+GOOD1:
+./client 9876 1.java 70
+Output being written to '1Out.bin'.
+Server response is benign_junk 27.
+
+./CountLinesServer_ioc 9876
+Opened '1.java'
+
+
+GOOD2:
+./client 9876 2.java 120
+Output being written to '2Out.bin'.
+Server response is benign_junk 224.
+
+./CountLinesServer_ioc 9876
+
+
+BAD1:
+./client 9876 long.java 257
+no output
+
+./CountLinesServer_ioc 9876
+Opened 'long.java'
+CountLinesServer.c:325:42: runtime error: value lost in conversion of '-1' from 'int' (int) to 'unsigned int' (unsigned int)
+Illegal instruction (core dumped)
+
+
+
+BAD2:
+./client 9876 2.java 90
+no output
+./CountLinesServer_ioc 9876
+Opened '2.java'
+CountLinesServer.c:325:42: runtime error: value lost in conversion of '-9' from 'int' (int) to 'unsigned int' (unsigned int)
+Illegal instruction (core dumped)
+
+

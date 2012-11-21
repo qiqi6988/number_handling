@@ -1,0 +1,7 @@
+CountLinesServer: CountLinesServer.o
+	gcc -o CountLinesServer CountLinesServer.o
+CountLinesServer.o: CountLinesServer.c
+	gcc -c CountLinesServer.c
+
+clean: 
+	rm -f *.o

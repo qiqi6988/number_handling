@@ -1,0 +1,53 @@
+This is a client / server model shared memory program. Both the client
+and server code are unique to this variant. This is based off of
+
+TC_C_194_v527
+
+The inputs / outputs are essentially the same as v527 except that we
+use keys for shared memory now and the filename + length come in from
+the client instead of at the command line to a standalone program.
+
+
+Input files can be found in the testData directory.
+
+NOTE: The technical impact is READ MEMORY. However, I'm not sure tools
+can figure this out. However, they should be able to pick up on the
+sign extension leading to an erroneous comparison, so I think it's
+fine. Someone with better STONESOUP understanding should verify this.
+
+
+IO PAIRS:
+
+GOOD1:
+./client 9876 1.java 70
+./server 9876
+
+CLIENT OUTPUT (stdout):
+Server response is benign_junk 27.
+
+
+
+GOOD2:
+./client 9876 2.java 120
+./server 9876
+
+CLIENT OUTPUT (stdout):
+Server response is benign_junk 224.
+
+
+
+BAD1:
+./client 9876 long.java 257
+./server 9876
+
+CLIENT OUTPUT (stdout):
+Server response is 116-53-6526 0.
+
+
+
+BAD2:
+./client 9876 2.java 90
+./server 9876
+
+CLIENT OUTPUT:
+Server response is 116-53-6526 50.
