@@ -1,0 +1,21 @@
+input: 
+filename=2.java&length=90
+
+trapped messages:
+countlines.c:317:59: runtime error: unsigned subtraction overflow [ expr = '-', lval = (uint32) 90, rval = (uint32) 99 ]
+
+codes:
+
+1. remaining_chars = ( unsigned int ) (max_line_length.u - place); , the input data 90 is assigned to max_line_length, and as there is a line whose length is longer than 90, thus, it will goes to above code.
+2. as remaining_chars in this situation is larger than zero, then output_data_index will be 0
+if ( remaining_chars > 0 )   //STONESOUP:TRIGGER_POINT       
+      {
+        output_data_index = 0;
+      }
+
+3.  printf("<html><body>%s %d</body></html>\n",config_data[output_data_index], lines_of_code);
+it will printout config_data[0], which is a secret string
+
+solution:
+Do not convert the signed integer to the unsigned one
+
