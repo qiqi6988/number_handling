@@ -1,0 +1,38 @@
+Bad1 for gcc:
+./countlines long.java 527
+result: 116-53-6526 0 the same with the given output
+
+Bad2 for gcc:
+./countlines 2.java 90
+result: 116-53-6526 50   the same with the given output
+
+Bad3 for gcc:
+./countlines hamlet.txt 68
+result: 116-53-6526 22
+
+Bad1 for ioc:
+./countlines_ioc long.java 527
+countlines.c:88:27: runtime error: value lost in conversion of '527' from 'int' (int) to 'char' (char)
+Illegal instruction (core dumped)
+
+
+
+Bad2 for ioc:
+./countlines_ioc 2.java 90
+countlines.c:273:42: runtime error: value lost in conversion of '-10' from 'int' (int) to 'unsigned int' (unsigned int)
+Illegal instruction (core dumped)
+
+
+Bad3 for ioc:
+./countlines_ioc hamlet.txt 68
+countlines.c:273:42: runtime error: value lost in conversion of '-1' from 'int' (int) to 'unsigned int' (unsigned int)
+Illegal instruction (core dumped)
+
+Bad1 for ioc_notrap:(This could find out all the error points, if trapped, we can only have one point)
+./countlines_ioc_notrap long.java 527
+countlines.c:88:27: runtime error: value lost in conversion of '527' from 'int' (int) to 'char' (char)
+countlines.c:273:42: runtime error: value lost in conversion of '-25' from 'int' (int) to 'unsigned int' (unsigned int)
+116-53-6526 0
+
+Always, the last one is the direct reason for the error, while the first one is the original causes.
+
