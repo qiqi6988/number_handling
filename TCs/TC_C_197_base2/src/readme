@@ -1,0 +1,23 @@
+commands:
+make gcc
+make ioc
+
+
+gcc_run_good1
+gcc_run_good2
+gcc_run_good3
+gcc_run_bad1
+gcc_test_good1
+gcc_test_good2
+gcc_test_good3
+gcc_test_bad1
+
+
+ioc_run_good1
+ioc_run_good2
+ioc_run_good3
+ioc_run_bad1
+ioc_test_good1
+ioc_test_good2
+ioc_test_good3
+ioc_test_bad1

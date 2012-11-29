@@ -1,0 +1,43 @@
+code:
+line 242:
+if (line_already_counted == 0)
+                        {
+                                lines_of_code++;
+                                line_already_counted = 1;
+                        }
+
+
+line 140:
+                if ( lines_of_code < 0 )        //STONESOUP:CROSSOVER_POINT
+                {
+                  output_data_index = 0;        //STONESOUP:TRIGGER_POINT       // TECHNICAL_IMPACT:READ_MEMORY
+                }
+
+
+
+
+reason:
+In line 242, no overflow is checked, and once the variable lines_of_code is overflow, it will be a negative number, then in line 140, it will set output_data_index=0, and this index refers to a "secret string", and it will be printed out later.
+
+solution: change line 270
+if (line_already_counted == 0)
+                        {
+				if(lines_of_code<127)
+                                {lines_of_code++;}
+				else 
+				{printf("exceed the maximum line"); exit(1);}
+                                line_already_counted = 1;
+                        }
+
+
+OR
+if (line_already_counted == 0)
+                        {
+				
+                                lines_of_code++;
+				if(lines_of_code<0)
+				{printf("exceed the maximum line"); exit(1);}
+                                line_already_counted = 1;
+                        }
+
+

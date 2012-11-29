@@ -1,0 +1,46 @@
+/*
+ * test input for the base test program
+   */
+
+import java.io.*;
+
+public class tc190001001 {
+
+	/**
+	 * @param args
+	 */
+
+	public static void main(string[] args) {
+
+		int i = 0;
+
+		// obtain input from stdin.
+		
+		try {
+			inputstreamreader isr = new inputstreamreader(system.in);
+			bufferedreader stdin = new bufferedreader(isr);
+			system.out.print("enter an integer: ");
+			string str = stdin.readline();
+			i = integer.parseint(str);
+		}
+		catch (ioexception e) {
+			system.err.println("io error");
+			system.exit(1);
+		}
+		catch (numberformatexception e) {
+			system.err.println("argument must be an integer");
+			system.exit(1);
+		}
+
+		// the tainted input is used to affect the looping condition.
+	    
+		for ( int x = 0; x < 10; x++ ) {
+			system.out.println(x);
+			if ( x == 5 ) {
+				x = x + i;
+			}
+		}
+
+	}
+
+}
