@@ -1,0 +1,20 @@
+gcc good: 
+input--3.java
+output--RESULT: 0 (same with given)
+
+gcc better:
+input--1.java
+output--RESULT: 27(same with given)
+
+gcc bad1:
+input--4.java
+output--no result, infinitely running (same with given)
+
+gcc_bad2:
+input--hamlet.txt
+output--noresult, infinitely running (same with given)
+
+ioc:
+can not build the source code because there are several errors
+1. function called without declaration
+2. function defined in another function
