@@ -1,0 +1,17 @@
+commands:
+make gcc
+make ioc
+make ioc_notrap
+
+gcc_run_good1
+gcc_run_bad1
+gcc_run_bad2
+
+
+ioc_run_good1
+ioc_run_bad1
+ioc_run_bad2
+
+ioc_notrap_run_good1
+ioc_notrap_run_bad1
+ioc_notrap_run_bad2
