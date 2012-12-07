@@ -43,7 +43,8 @@ Base Test Program -- countlines.c
 #include <ctype.h>
 
 #define DEBUG 0
-
+void bar(int x);
+void foo(int x);
 void foo(int x)	//STONESOUP:CONTROL_FLOW:INDIRECTLY_RECURSIVE
 {
 	if (x == 0)
@@ -56,14 +57,17 @@ void bar(int x)
 	foo(x);
 }
 
+int func(){     //STONESOUP:DATA_TYPE:ARRAY_LENGTH_FUNCTION_RETURN_VALUE
+
+                return 256;
+        }
+
+
 int main (int argc, char *argv[])
 {
 	FILE *fp;
 
-	int func(){	//STONESOUP:DATA_TYPE:ARRAY_LENGTH_FUNCTION_RETURN_VALUE
 
-		return 256;
-	}
 	char filename[func()];
 	char line[func()];
 
@@ -259,6 +263,7 @@ int main (int argc, char *argv[])
 			if (line_already_counted == 0)
 			{
 				lines_of_code++;
+				printf("%d\n",lines_of_code);
 				line_already_counted = 1;
 			}
 
@@ -278,7 +283,7 @@ int main (int argc, char *argv[])
 	 }
 
 	// We have finished looking at each line in the file, and now have the line count.  So print it!!
-	printf("\nRESULT: %d", lines_of_code);
+	//printf("\nRESULT: %d", lines_of_code);
 
 	return(EXIT_SUCCESS);
 }
