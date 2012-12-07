@@ -1,0 +1,41 @@
+gcc_good1:make gcc_run_good1
+result:the same with the given
+input:program2
+output:0
+
+gcc_good2:make gcc_run_good2
+result:the same with the given
+input:program3
+outut:87
+
+gcc_bad1:make gcc_run_bad1
+result:the same with the given
+input:program1
+output:run infinitely
+
+gcc_bad2:make gcc_run_bad2
+result: the same with the given
+input:testfile
+output:Bad instruction
+
+ioc_good1:make ioc_run_good1
+result:the same with the given
+input:program2
+output:0
+
+ioc_good2:make ioc_run_good2
+result:the same with the given
+input:program3
+outut:87
+
+(IOC doesn't detect it)
+ioc_bad1:make ioc_run_bad1
+result:the same with the given
+input:program1
+output:run infinitely
+
+(IOC doesn't detect it)
+gcc_good2:make gcc_run_good2
+result:the same with the given
+input:testfile
+outut:Bad instruction

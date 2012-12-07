@@ -101,9 +101,11 @@ int execute() {
 	sigB = signum( B );
 	A = sigA * A;
 	B = sigB * B;
+	printf("%d%d",A,B);exit(1);
 	C = 0;
 	while ( A != B*C )	//STONESOUP:CROSSOVER_POINT	//STONESOUP:TRIGGER_POINT
 	  {
+//	printf("ok");
 	    C++;
 	  }
 	A = C * sigA * sigB;
