@@ -1,0 +1,22 @@
+gcc_good1: 
+result:the same with the given
+output:Output size 16000
+output file:out_pcm1_gcc_test.wav
+
+gcc_bad1:
+result:the same with the given
+output:Output size 16400384
+output file:out_pcm2_gcc_test.wav
+
+ioc_good1:
+result:the same with the given
+output:Output size 16000
+output file:out_pcm1_ioc_test.wav
+
+ioc_bad1:catched an error
+result:result is different from the given
+output:
+main.c:92:33: runtime error: left shift into or beyond sign bit [ expr = '<<', lval = (sint32) -128, rval = (sint32) 8 ]
+make: *** [ioc_run_bad1] Illegal instruction (core dumped)
+
+output file:out_pcm2_gcc_test.wav(different from the given)

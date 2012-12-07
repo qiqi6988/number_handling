@@ -1,0 +1,23 @@
+error: In the following codes, it doesn't check whether the count is negative. If count is negative(in bad case, -1), then it will run until it wrap around. IOC may dectect it when it wrap around, but it will be too late.
+
+
+ while (count--) { //STONESOUP:DATA_TYPE:SIGNED_LONG
+                fgets(line, sizeof(line), file);
+                printf("%s", line); //STONESOUP:TRIGGER_POINT
+                if (i == 100)
+                {
+                        i = 0;
+                        sleep(1);
+                }
+                i++;
+        }
+
+
+solution:in line 138
+
+ if (count[0] > 2000) { //STONESOUP:CROSSOVER_POINT
+          perror("argument is too large; maximum is 2000");
+          return(-1);
+        }
+ if(count[0]<0)
+{exit(1);}

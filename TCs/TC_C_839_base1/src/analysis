@@ -1,0 +1,31 @@
+error: In the following codes, it doesn't check whether the count is negative. If count is negative(in bad case, -1), then it will run until it wrap around. IOC may dectect it when it wrap around, but it will be too late.
+
+
+ while (count-- > 0) {
+#endif
+                char *s;
+                s = fgets(line, sizeof(line), file);
+                /* Defect part 2: if we comment out this if, then the program will
+                 * print the last line of the file over and over until it wraps
+                 * around to zero.
+                 */
+//              if (s)
+                        printf("%s", line); //STONESOUP:TRIGGER_POINT
+        }
+
+
+solution:
+if(count<0)
+{exit();}
+
+while (count-- > 0) {
+#endif
+                char *s;
+                s = fgets(line, sizeof(line), file);
+                /* Defect part 2: if we comment out this if, then the program will
+                 * print the last line of the file over and over until it wraps
+                 * around to zero.
+                 */
+//              if (s)
+                        printf("%s", line); //STONESOUP:TRIGGER_POINT
+        }
