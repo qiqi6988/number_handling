@@ -1,8 +1,0 @@
-countlines: query.o countlines.o
-	gcc -o countlines countlines.o query.o
-countlines.o: countlines.c
-	gcc -c countlines.c query.h
-query.o: query.c
-	gcc -c query.c query.h
-clean: 
-	rm -f *.o

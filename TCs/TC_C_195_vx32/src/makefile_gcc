@@ -1,8 +1,0 @@
-cmdInterreter: query.o cmdInterpreter.o
-	gcc -o cmdInterpreter cmdInterpreter.o query.o
-cmdInterpreter.o: cmdInterpreter.c
-	gcc -c cmdInterpreter.c query.h
-query.o: query.c
-	gcc -c query.c query.h
-clean: 
-	rm -f *.o

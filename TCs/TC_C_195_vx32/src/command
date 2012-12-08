@@ -1,0 +1,21 @@
+first type this in command line to export an env var:
+export QUERY_STRING=cmd=6+in.txt+7+1+3+Good1_gcc.txt
+it seemes in makefile we can only change the env var, but not create a new one
+
+
+make gcc
+make ioc
+
+make gcc_run_good1
+make gcc_run_good2
+make gcc_run_bad1
+make gcc_good1_check
+make gcc_good2_check
+make gcc_bad1_check
+
+make ioc_run_good1
+make ioc_run_good2
+make ioc_run_bad1
+make ioc_good1_check
+make ioc_good2_check
+make ioc_bad1_check
