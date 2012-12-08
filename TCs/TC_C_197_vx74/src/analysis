@@ -1,0 +1,41 @@
+error for bad1:
+error code:
+
+1. 
+while (lower < upper) {
+    char ch = lower;            //STONESOUP:CROSSOVER_POINT
+   // printf("%d\n",ch);
+    /* FIX: unsigned char ch = c; */
+    ch = tr(ch);                /* Translate */
+    if (ch != lower)
+      count[lower]++;           /* Count translations */
+    putchar(ch);
+    lower++;
+  }
+
+2.
+static char keep[sizeof(secret)];   /* A store for secrets */
+static char tbl[NCHARS];        /* A character translation table */
+
+3.
+tr(int c)                       /* promotion to elimate -Wall */
+{
+//      printf("tr:%d",c);                      /* warnings on char indexing */
+  return tbl[c];                //STONESOUP:TRIGGER_POINT
+}
+
+in our bad input, lower=128 and upper=255, which means when they cast to char in the line "char ch=lower", they will become -128~-1, and tbl[-128~-1]locates the secret array keep, and keep's content will be print out.
+
+
+error code for good1 and good2:
+  for (i = 0; i < NCHARS; i++) {
+    count[i] = 0;
+    if (isupper(i))
+      tbl[i] = tolower(i);
+    else
+      tbl[i] = i;//error
+
+  }
+
+tbl is a char array, and i is int, lost value.
+
