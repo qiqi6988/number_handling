@@ -404,10 +404,10 @@ int main(int argc, char *argv[]) {
 					printf("DEBUG: %s\n", line_pointer);
 				lines_of_code++;
 				line_already_counted = 1;
-
 				len = istrlen(line) + 1;
 				char * lineout = (char *) malloc(len);
 				memcpy(lineout, line, len);
+				printf("3\n");
 				strcat(lineout, "\n");
 				fputs(lineout, out);
 			}

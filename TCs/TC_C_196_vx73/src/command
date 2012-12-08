@@ -1,0 +1,18 @@
+make gcc
+make ioc
+
+make gcc_run_good1
+make gcc_run_good2
+make gcc_run_good3
+make gcc_run_bad1
+
+make ioc_run_good1
+make ioc_run_good2
+make ioc_run_good3
+make ioc_run_bad1
+
+
+make client_run_good1
+make client_run_good2
+make client_run_good3
+make client_run_bad1

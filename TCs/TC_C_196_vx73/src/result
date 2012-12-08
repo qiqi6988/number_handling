@@ -1,0 +1,37 @@
+gcc_good1:
+output:RESULT: 27
+the same with the given
+
+gcc_good2:
+output:RESULT: 31
+the same with the given
+
+gcc_good3:
+output: RESULT: 4
+the same with the given
+
+gcc_bad1:
+output: Segmentation fault (core dumped)
+the same with the given
+
+ioc_good1:
+output:RESULT: 27
+the same with the given
+
+ioc_good2:
+output:RESULT: 31
+the same with the given
+
+ioc_good3:
+output: RESULT: 4
+the same with the given
+
+ioc_bad1:trapped
+output:
+countlines.c:408:25: runtime error: value lost in conversion of '-3' from 'int' (int) to 'uint16_t' (unsigned short)
+make: *** [ioc_run_bad1] Illegal instruction (core dumped)
+make: *** Deleting file `ioc_run_bad1'
+
+
+
+
