@@ -1,23 +1,45 @@
-Good ones for gcc and ioc are the same with the given output
+Good1 for gcc:
+27
+the same with the given
 
-Bad ones for gcc are the same with the given output(infinite running and no output)
+Good2 for gcc:
+224
+the same with the given
 
-Bad ones for ioc are trapped with the error below:
+Bad1 for gcc:
+./countlines 1.java 60
+No result: the same(infinite running)
+
+Bad2 for gcc:
+./countlines 2.java 90
+No result: the same(infinite running)
+
+Bad3 for gcc:
+./countlines hamlet.txt 68
+No result: the same(infinite running)
+
+
+Good1 for ioc:
+27
+the same with the given
+
+Good2 for ioc:
+224
+the same with the given
+
+Bad1 for ioc:
+./countlines_ioc 1.java 60
+countlines.c:267:42: runtime error: value lost in conversion of '-1' from 'int' (int) to 'unsigned int' (unsigned int)
+Illegal instruction (core dumped)
+
+
+Bad2 for ioc:
+./countlines_ioc 2.java 90
 countlines.c:267:42: runtime error: value lost in conversion of '-10' from 'int' (int) to 'unsigned int' (unsigned int)
 Illegal instruction (core dumped)
 
-Analysis:
- if ( place > max_line_length )
-           {
-             remaining_chars = ( unsigned int ) (max_line_length - place);      //STONESOUP:CROSSOVER_POINT
-             // next condition should be impossible!!
-             if ( remaining_chars > 0 ) //STONESOUP:TRIGGER_POINT
-               {
-                 while(1);      //STONESOUP:CONTROL_FLOW:INFINITE_LOOP
-               }
-             printf( "remaining_chars: %u\n", remaining_chars );
-           }
 
-In the above codes "remaining_chars = ( unsigned int ) (max_line_length - place);", the max_line_length assigned with the user input is relatively smaller than one of the lines in the input file, thus, "max_line_length - place" is a negative number, and when it converted to unsigned int, it becomes very large(at least a positive number). Thus it will go into the while loop below, and never returns.
-
-To solve it, change the line of "remaining_chars = ( unsigned int ) (max_line_length - place);" to "remaining_chars=place-max_line_length; and change to type of remaining_chars to int from unsigned int"
+Bad3 for ioc:
+./countlines_ioc hamlet.txt 68
+countlines.c:267:42: runtime error: value lost in conversion of '-1' from 'int' (int) to 'unsigned int' (unsigned int)
+Illegal instruction (core dumped)
