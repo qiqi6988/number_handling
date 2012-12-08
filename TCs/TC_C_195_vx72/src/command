@@ -1,0 +1,17 @@
+make gcc
+make ioc
+
+server:
+make gcc_run
+make ioc_run
+
+client:
+make client_run_good
+make client_run_bad
+
+check:
+make gcc_good_check
+make gcc_bad_check
+make ioc_good_check
+make ioc_bad_check
+
