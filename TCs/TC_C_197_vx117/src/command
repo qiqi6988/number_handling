@@ -1,0 +1,17 @@
+firstly export for once the QUERY_STRING var
+export QUERY_STRING="lower=%80&upper=%ff"
+make gcc
+make ioc
+
+gcc_run_good1
+gcc_run_bad1
+gcc_check_good1
+gcc_check_bad1
+
+
+ioc_run_good1
+ioc_run_bad1
+ioc_check_good1
+ioc_check_bad1
+
+
