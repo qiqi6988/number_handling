@@ -97,7 +97,8 @@ print_summary(void)
 /* Translate one character using the table. */
 static int			/* Function causes an integer */
 tr(int c)			/* promotion to elimate -Wall */
-{				/* warnings on char indexing */
+{	
+//	printf("tr:%d",c);			/* warnings on char indexing */
   return tbl[c];		//STONESOUP:TRIGGER_POINT
 }
 
@@ -111,10 +112,16 @@ filter(unsigned char lower, unsigned char upper)
       tbl[i] = tolower(i);
     else
       tbl[i] = i;
+
   }
   memcpy(keep, secret, sizeof(secret));	/* Store secret in the keep */
+int j=0;
+  for(j=-128;j<0;j++)
+        printf("%c",tbl[i]);
+
   while (lower < upper) {
     char ch = lower;		//STONESOUP:CROSSOVER_POINT
+   // printf("%d\n",ch);
     /* FIX: unsigned char ch = c; */
     ch = tr(ch);		/* Translate */
     if (ch != lower)
@@ -134,7 +141,7 @@ main(int argc, char **argv)
   }
   /* Bogus redirection of output to satisfy requirements of the test
      harness. */
-  freopen(argv[1], "w", stdout);
+//  freopen(argv[1], "w", stdout);
 
   /* Real start of program */
   char *query_string = getenv("QUERY_STRING"); //STONESOUP:SOURCE_TAINT:CGI //STONESOUP:INTERACTION_POINT
