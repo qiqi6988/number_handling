@@ -210,8 +210,9 @@ int recaman(Integer sequenceNo){
 //See if the input value is already in the sequence
 int inSequence(int value, int *seq, Integer* size){
   char j;   
-  
+//printf("%d\n",size->n); 
   for (j=0; j > -(size->n); j--) {	//STONESOUP:CROSSOVER_POINT	
+//	printf("%d\n",j);
     if (seq[-j] == value) {	//STONESOUP:TRIGGER_POINT	
       return 1;
     }
