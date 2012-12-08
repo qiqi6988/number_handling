@@ -1,27 +1,3 @@
-
-makefile:
-makefile_gcc: make -f makefile_gcc/ make clean -f makefile_gcc
-makefile_ioc:make -f makefile_ioc/ make clean -f makefile_ioc
-
-while make, clang(not ioc) will detect an error:
-countlines.c:94:6: warning: implicit declaration of function 'sleep' is invalid
-      in C99 [-Wimplicit-function-declaration]
-            sleep ( j * 20 );
-            ^
-1 warning generated.
-
-
-makefile_ioc_notrap:make -f makefile_ioc_notrap/ make clean -f makefile_ioc_notrap
-
-while make, clang(not ioc) will detect an error:
-countlines.c:94:6: warning: implicit declaration of function 'sleep' is invalid
-      in C99 [-Wimplicit-function-declaration]
-            sleep ( j * 20 );
-            ^
-1 warning generated
-
-
-
 Run(gcc):
 Good1: the same , output is 27
 ./countlines ../testData/1.java 2
