@@ -1,7 +1,0 @@
-cmdInterreter: cmdInterpreter.o
-	gcc -o cmdInterpreter cmdInterpreter.o
-cmdInterpreter.o: cmdInterpreter.c
-	gcc -c cmdInterpreter.c
-
-clean: 
-	rm -f *.o
