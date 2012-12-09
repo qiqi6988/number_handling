@@ -1,0 +1,13 @@
+The error caused by the following code:
+
+unsigned long precision_needed(unsigned long* dx, unsigned long* dy){
+  lldiv_t d = lldiv(*dy,
+                *dx); // STONESOUP:TRIGGER_POINT
+  if ( d.rem == 0 ){
+    return 0;
+  }else{
+    return 1;
+  }
+}
+
+when give the function lldiv(from stdlib.h) with a denomitor zero, it will cause the Floating point error, however, IOC cannot detect it because it will not check the library function.

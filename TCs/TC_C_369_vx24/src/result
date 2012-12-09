@@ -1,0 +1,33 @@
+gcc_good1:
+output:the same with the given
+y = (1.000000)x + 1.000000
+
+gcc_good2:
+output: the same with the given
+y = (0.000000)x + 2.000000
+
+gcc_good3:
+output: the same with the given
+y = (0.325000)x + 12.100000
+
+
+gcc_bad1:
+output:the same with the given
+Floating point exception (core dumped)
+
+ioc_good1: 
+output:the same with the given
+y = (1.000000)x + 1.000000
+
+ioc_good2:
+output: the samw with the given
+y = (0.000000)x + 2.000000
+
+ioc_good3:
+output: the same with the given
+y = (0.325000)x + 12.100000
+
+ioc_bad1:IOC couldn't detect the error in this case
+output:the same with the given
+Floating point exception (core dumped)
+
