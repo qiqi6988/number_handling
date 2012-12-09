@@ -1,0 +1,15 @@
+gcc_good1:
+output: Output size 16000
+
+gcc_bad1:
+output: Output size 16400384
+
+ioc_good1:
+output: Output size 16000
+
+ioc_bad1:trapped
+main.c:127:46: runtime error: left shift into or beyond sign bit [ expr = '<<', lval = (sint32) -128, rval = (sint32) 8 ]
+main.c:137:27: runtime error: value lost in conversion of '-32752' from 'int16_t' (short) to 'unsigned int' (unsigned int)
+main.c:137:43: runtime error: unsigned multiplication overflow [ expr = '*', lval = (uint32) 4294934544, rval = (uint32) 8000 ]
+Output size 16400384
+
