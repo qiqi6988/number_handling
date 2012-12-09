@@ -1,0 +1,8 @@
+The error caused by the following code:
+
+div_t d = div((dy = compute_difference((**(point**)p2).y
+                                         ,(**(point**)p1).y)),  // STONESOUP:CROSSOVER_POINT
+                (dx = compute_difference((**(point**)p2).x,
+                                         (**(point**)p1).x))); // STONESOUP:TRIGGER_POINT
+
+when give the function div(from stdlib.h) with a denomitor zero, it will cause the Floating point error, however, IOC cannot detect it because it will not check the library function.
