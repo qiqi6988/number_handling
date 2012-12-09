@@ -1,0 +1,22 @@
+gcc_good1:
+output file: other_leOut.bin(the same with the given)
+
+gcc_good2:
+output file: other_beOut.bin(the same with the given)
+
+gcc_bad1:
+output file: root_beOut.bin (the same witht the given)
+
+ioc_good1:(an intended conversion error to find out the maximum value of size_t)
+unihan.c:120:25: runtime error: value lost in conversion of '-1' from 'int' (int) to 'size_t' (unsigned int)
+make: *** [ioc_run] Illegal instruction (core dumped)
+
+ioc_good2:(an conversion error, but doesn't matter)
+unihan.c:71:10: runtime error: value lost in conversion of '-131072' from 'wchar_t' (int) to 'unsigned int' (unsigned int)
+make: *** [ioc_run] Illegal instruction (core dumped)
+
+ioc_bad1:(an conversion error, but doesn't matter)
+unihan.c:71:10: runtime error: value lost in conversion of '-131072' from 'wchar_t' (int) to 'unsigned int' (unsigned int)
+make: *** [ioc_run] Illegal instruction (core dumped)
+
+

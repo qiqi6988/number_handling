@@ -1,0 +1,32 @@
+code:
+
+reason:
+When running at untrusted mode(without -t mode), even root should not be given the privileged permission. However in the bad case, root is given the privileged permission under untrusted mode.
+
+It's not caused by the user's input, instead by the codes itself.
+
+
+In the bad case, the program runs in untrusted mode, it will not allow "root" as input(if it detects "root", it will stop running the followng code), the program call "is_root" before convert the string to proper encoding style,and "is_root" check only works for little-endian, the input file uses big-endian, thus the program will assume that it is not "root", and in the following code, it converted the UTF-16BE to UTF-8, it assumes that the previous code has already checked the username, thus it will give a "privileged operation" to the user.
+
+The reason caused this error is that the program check the content of the file before converted it into proper encoding.
+
+solution: 
+check the content after conversion:
+after executing:
+ switch (buf[0]) {
+  case 0xfffeu:
+    cd = iconv_open ("UTF-8", "UTF-16BE");
+    break;
+  case 0xfeffu:
+    cd = iconv_open ("UTF-8", "UTF-16LE");
+    break;
+  default:
+    cd = iconv_open ("UTF-8", "UTF-16");
+  }
+
+then execute:
+strcmp (username, "root")
+
+and if they are the same, stop processing this request.
+
+

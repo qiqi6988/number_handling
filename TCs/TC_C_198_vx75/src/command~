@@ -1,0 +1,19 @@
+check immediately after executing it because ioc and gcc have the same output file.
+make gcc
+make ioc
+
+gcc_run
+ioc_run
+
+client_run_good1
+client_run_good2
+client_run_bad1
+
+gcc_check_good1
+gcc_check_good2
+gcc_check_bad1
+
+
+ioc_check_good1
+ioc_check_good2
+ioc_check_bad1
