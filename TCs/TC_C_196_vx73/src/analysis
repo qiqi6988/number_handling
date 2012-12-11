@@ -1,0 +1,41 @@
+error code:
+countlines.c:408:25: runtime error: value lost in conversion of '-3' from 'int' (int) to 'uint16_t' (unsigned short)
+make: *** [ioc_run_bad1] Illegal instruction (core dumped)
+make: *** Deleting file `ioc_run_bad1'
+
+ if (line_already_counted == 0) {
+                                if (DEBUG)
+                                        printf("DEBUG: %s\n", line_pointer);
+                                lines_of_code++;
+                                line_already_counted = 1;
+                                len = istrlen(line) + 1;
+                                char * lineout = (char *) malloc(len);
+                                memcpy(lineout, line, len);
+                                printf("3\n");
+                                strcat(lineout, "\n");
+                                fputs(lineout, out);
+                        }
+
+
+analysis:
+in line 408:
+ len = istrlen(line) + 1;
+the istrlen function can return a negative integer to represent an error, and a mal-crafted input string by the user can trigger the negative return from istrlen. Then, when assigned it to len(type of uint16_t) from signed to unsigned , it will lose value and cause len to be a large positive number, and in the following codes it will copy the line to lineout, but len is not the length of line, so it will cause segfault.
+
+solution:
+add check to the return value:
+ if (line_already_counted == 0) {
+                                if (DEBUG)
+                                        printf("DEBUG: %s\n", line_pointer);
+                                lines_of_code++;
+                                line_already_counted = 1;
+                                len = istrlen(line) + 1;
+				if(len<0)
+				{printf("error detected"); return;}//add
+                                char * lineout = (char *) malloc(len);
+                                memcpy(lineout, line, len);
+                                printf("3\n");
+                                strcat(lineout, "\n");
+                                fputs(lineout, out);
+                        }
+

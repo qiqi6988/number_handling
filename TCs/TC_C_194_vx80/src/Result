@@ -32,7 +32,6 @@ Server response is 116-53-6526 50.
 
 
 IOC:
-GCC:
 GOOD1:
 ./client 9876 1.java 70
 Output being written to '1Out.bin'.

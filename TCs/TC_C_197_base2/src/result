@@ -12,7 +12,7 @@ output--gcc_good3_output (content is the same with given file "output.4")
 
 gcc bad1:
 input--data
-output--gcc_bad1_output (the given file "output")
+output--gcc_bad1_output (the same with the given file "output")
 
 
 
@@ -31,7 +31,10 @@ output--ioc_good3_output (content is the same with given file "output.4")
 
 ioc bad1:
 input--data
-output--ioc_bad1_output (the given file "output")
+output--trapped
+lower.c:122:16: runtime error: value lost in conversion of '128' from 'int' (int) to 'char' (char)
+make: *** [ioc_run_bad1] Illegal instruction (core dumped)
+
 
 
 

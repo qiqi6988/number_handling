@@ -1,8 +1,0 @@
-recaman: oneshotsrv.o recaman.o
-	gcc -o recaman recaman.o oneshotsrv.o
-recaman.o: recaman.c
-	gcc -c recaman.c
-oneshotsrv.o: oneshotsrv.c 
-	gcc -c oneshotsrv.c 
-clean: 
-	rm -f *.o

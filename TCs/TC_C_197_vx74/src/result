@@ -1,0 +1,38 @@
+gcc_good1:
+output file:gcc_good1_output
+the same with the given
+
+gcc_good2:
+output file:gcc_good2_output
+the same with the given
+
+gcc_bad1:
+output file:gcc_bad1_output
+the same with the given
+
+ioc_good1:trapped
+lower.c:112:16: runtime error: value lost in conversion of '128' from 'int' (int) to 'char' (char)
+make: *** [ioc_run_good1] Illegal instruction (core dumped)
+
+
+ioc_good2:trapped
+lower.c:112:16: runtime error: value lost in conversion of '128' from 'int' (int) to 'char' (char)
+make: *** [ioc_run_good1] Illegal instruction (core dumped)
+
+
+ioc_bad1: trapped
+lower.c:112:16: runtime error: value lost in conversion of '128' from 'int' (int) to 'char' (char)
+make: *** [ioc_run_bad1] Illegal instruction (core dumped)
+
+if run notrap:then the following error also prompted
+lower.c:116:15: runtime error: value lost in conversion of '254' from 'unsigned char' (unsigned char) to 'char' (char)
+
+
+
+
+
+
+
+
+
+

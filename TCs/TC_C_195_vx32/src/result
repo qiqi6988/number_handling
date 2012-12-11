@@ -1,0 +1,20 @@
+gcc_good1:
+output file:Good1_gcc(the same with the given output cmdout1
+
+gcc_good2:
+output file: Good2_gcc( the same with the given output cmdout3)
+
+gcc_bad1:
+output file: Bad_gcc( the same with the given output cmdout2)
+
+ioc_good1:
+output file:Good1_ioc(the same with the given output cmdout1)
+
+ioc_good2:
+output file:Good2_ioc(the same with the given output cmdout3)
+
+ioc_bad1:trapped
+Command: 7
+cmdInterpreter.c:290:13: runtime error: value lost in conversion of '-10' from 'int' (int) to 'unsigned int' (unsigned int)
+make: *** [ioc_run_bad1] Illegal instruction (core dumped)
+

@@ -1,0 +1,17 @@
+commands:
+make gcc
+make ioc
+
+make client_run_good1
+
+make client_run_bad1
+
+make gcc_run_good1
+
+make gcc_run_bad1: main_gcc
+	./ma
+
+make ioc_run_good1
+
+make ioc_run_bad1
+

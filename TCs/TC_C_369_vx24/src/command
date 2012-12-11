@@ -1,0 +1,14 @@
+commands:
+
+
+make gcc
+make ioc
+
+
+make gcc_run
+make ioc_run
+
+make run_good1_client
+make run_good2_client
+make run_good3_client
+make run_bad1_client

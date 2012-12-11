@@ -271,7 +271,7 @@ int main(int argc, char* argv[]){
 
     enum INPUT input;
     point p1,p2;
-
+	printf("%s\n",buffer);
     if ((input = parse_input(buffer,&p1,&p2)) != INPUT_POINTS){
       if (close(clisock) == -1){
         /*perror("SERVER: close(client socket) failed");*/
@@ -421,7 +421,7 @@ enum INPUT parse_input(char* buffer,point* p1,point* p2){
 enum SLOPE compute_slope(void** p1, void** p2, float* m){
   int dx;
   int dy;
- 
+printf("okay"); 
   div_t d = div((dy = compute_difference((**(point**)p2).y
 					 ,(**(point**)p1).y)),  // STONESOUP:CROSSOVER_POINT
 		(dx = compute_difference((**(point**)p2).x,
@@ -432,6 +432,8 @@ enum SLOPE compute_slope(void** p1, void** p2, float* m){
      There is really not reason to do this normally, but, I wanted to try and make the
      test case more interesting than a simple division operation. 
   */
+  printf("ok");
+printf("%d,%d",d.rem, d.quot);
   if ( dx != 0 ){
     if ( d.rem == 0 ){
       *m = dy/dx;

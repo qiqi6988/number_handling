@@ -1,0 +1,12 @@
+make gcc
+make ioc
+
+make gcc_run_good1
+make gcc_run_good2
+make gcc_run_bad1
+make gcc_run_bad2
+
+make ioc_run_good1
+make ioc_run_good2
+make ioc_run_bad1
+make ioc_run_bad2
