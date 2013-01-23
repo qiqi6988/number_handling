@@ -1,0 +1,4 @@
+kint-build make
+kint-build make check
+see the file pintck.txt
+result: kint doesnt find out the integer error

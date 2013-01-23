@@ -1,0 +1,8 @@
+---
+bug: array
+status: sat
+stack: 
+ - /usr/include/ctype.h:175:10
+ - /usr/include/ctype.h:292:10
+ - /Users/qiqi/Study/number_handling/TCs/TC_C_197_vx74/src/kint/lower.c:109:9
+ - /Users/qiqi/Study/number_handling/TCs/TC_C_197_vx74/src/kint/lower.c:176:10

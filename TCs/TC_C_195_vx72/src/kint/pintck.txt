@@ -1,0 +1,5 @@
+---
+bug: ssub
+status: sat
+stack: 
+ - /Users/qiqi/Study/number_handling/TCs/TC_C_195_vx72/src/kint/oneshotsrv.c:174:3

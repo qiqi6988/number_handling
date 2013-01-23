@@ -1,0 +1,5 @@
+---
+bug: smul
+status: sat
+stack: 
+ - /Users/qiqi/Study/number_handling/TCs/TC_C_196_v522/src/kint/countlines.c:39:3

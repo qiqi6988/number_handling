@@ -1,0 +1,10 @@
+stack:
+ - /Users/qiqi/Study/number_handling/TCs/TC_C_196_v522/src/kint/countlines.c    :39:3
+
+ in line 39:3 are the following codes:
+ int nsquaredplusone ( int n )
+  {
+     return ( (n*n) + 1 );
+  }
+
+  This function is the original cause of the integer error in this case
