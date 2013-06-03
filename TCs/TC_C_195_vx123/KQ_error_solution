@@ -1,5 +1,5 @@
-cmdInterpreter.c:230:10: runtime error: value lost in conversion of '-10' from 'int' (int) to 'unsigned int' (unsigned int)
-Illegal instruction (core dumped)
+cmdInterpreter.c:230:10: runtime error: value lost in conversion of '-10' from
+'int' (int) to 'unsigned int' (unsigned int) Illegal instruction (core dumped)
 
 code:
 end = getInteger(argv[holder + 2]);
