@@ -1,0 +1,60 @@
+code:
+line 88:
+ ik = llik;//NUMERICAL_TRUNCATION
+ if ( ik != llik )     //STONESOUP:CROSSOVER_POINT     //STONESOUP:TRIGGER_POINT
+    {
+      ik = ik*ik;
+
+      while ( ik > 0 )
+        {
+          ik--;
+          sleep ( 40 );
+          // this is to ensure that there will eventually be
+          // an availability DOS
+          if ( llik > 100 )
+            {
+              while ( 0 == 0 )
+                {
+                  ik++;
+                  ik--;
+                }
+            }
+        }
+    }
+
+
+
+reason:
+When llik is assigned to ik, and ik is int and llik is long long int, if llik is larger then MAX_INT, then llik is not equal to ik, then it will go into the following "if" block; and ik = ik*ik will make ik>0 unless ik=0. then it will go into the following while block. In our case, llik is larger than 100, then it will go into the infintie while loop.
+
+solution: 
+ if(llik<=INT_MAX)
+{
+ ik = llik;//NUMERICAL_TRUNCATION
+}
+else
+{
+	printf("llik is too large");
+	exit(1);
+}
+ if ( ik != llik )     //STONESOUP:CROSSOVER_POINT     //STONESOUP:TRIGGER_POINT
+    {
+      ik = ik*ik;
+
+      while ( ik > 0 )
+        {
+          ik--;
+          sleep ( 40 );
+          // this is to ensure that there will eventually be
+          // an availability DOS
+          if ( llik > 100 )
+            {
+              while ( 0 == 0 )
+                {
+                  ik++;
+                  ik--;
+                }
+            }
+        }
+    }
+

@@ -1,0 +1,43 @@
+gcc good1: 
+input: -t other_be.txt
+output:Restricted operations permitted (same with given)
+
+gcc good3: 
+input: -t root_be.txt(-2)
+output: Privileged operations permitted (same with given)
+
+gcc good2:
+input: -t other_le.txt
+output: Restricted operations permitted  (same with given)
+
+gcc_bad:
+input: root_be.txt
+output: Privileged operations permitted ( same with given)
+
+
+ioc good1: (the following error it detected seems to be an intended one, wants to find the maximum value of size_t)
+input: trapped as below
+unihan.c:143:25: runtime error: value lost in conversion of '-1' from 'int' (int) to 'size_t' (unsigned int)
+make: *** [ioc_run_bad] Illegal instruction (core dumped)
+(not the same with given)
+
+ioc good3: 
+input: -t root_be.txt(-2)
+output: trapped as below
+unihan.c:143:25: runtime error: value lost in conversion of '-1' from 'int' (int) to 'size_t' (unsigned int)
+make: *** [ioc_run_bad] Illegal instruction (core dumped)
+
+
+ioc good2:
+input: -t other_le.txt
+output: trapped as below
+unihan.c:143:25: runtime error: value lost in conversion of '-1' from 'int' (int) to 'size_t' (unsigned int)
+make: *** [ioc_run_bad] Illegal instruction (core dumped)
+
+
+ioc_bad:(ioc could not detect the byte order error)
+input: root_be.txt
+output: trapped as below
+unihan.c:143:25: runtime error: value lost in conversion of '-1' from 'int' (int) to 'size_t' (unsigned int)
+make: *** [ioc_run_bad] Illegal instruction (core dumped)
+

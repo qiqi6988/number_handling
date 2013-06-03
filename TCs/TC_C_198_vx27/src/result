@@ -1,0 +1,44 @@
+gcc_run_good1:
+input:-t other_be.txt
+output:Restricted operations permitted(the same with the given)
+
+gcc_run_good2:
+input: -t root_le.txt
+output:Privileged operations permitted(the same with the given)
+
+gcc_run_good3:
+input: other_be.txt
+output:Restricted operations permitted(the same with the given)
+
+gcc_run_good4:
+input:other_le.txt
+output:Restricted operations permitted(the same with the given)
+
+gcc_run_bad1:
+input:root_be.txt
+output:Privileged operations permitted(the same with the given)
+
+ioc_run_good1:trapped
+input:-t other_be.txt
+unihan.c:157:25: runtime error: value lost in conversion of '-1' from 'int' (int) to 'size_t' (unsigned int)
+make: *** [ioc_run_good1] Illegal instruction (core dumped)
+
+ioc_run_good2:trapped
+input: -t root_le.txt
+unihan.c:157:25: runtime error: value lost in conversion of '-1' from 'int' (int) to 'size_t' (unsigned int)
+make: *** [ioc_run_good1] Illegal instruction (core dumped)
+
+
+ioc_run_good3:trapped
+unihan.c:157:25: runtime error: value lost in conversion of '-1' from 'int' (int) to 'size_t' (unsigned int)
+make: *** [ioc_run_good1] Illegal instruction (core dumped)
+
+ioc_run_good4:trapped
+unihan.c:157:25: runtime error: value lost in conversion of '-1' from 'int' (int) to 'size_t' (unsigned int)
+make: *** [ioc_run_good1] Illegal instruction (core dumped)
+
+ioc_run_bad1:trapped
+unihan.c:157:25: runtime error: value lost in conversion of '-1' from 'int' (int) to 'size_t' (unsigned int)
+make: *** [ioc_run_good1] Illegal instruction (core dumped)
+
+

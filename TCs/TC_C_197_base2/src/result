@@ -1,0 +1,48 @@
+gcc good1: 
+input--2.java
+output--gcc_good1_output (content is the same with given file "output.2")
+
+gcc good2: 
+input--5.java
+output--gcc_good2_output (content is the same with given file "output.3")
+
+gcc good3: 
+input--bigOut.txt
+output--gcc_good3_output (content is the same with given file "output.4")
+
+gcc bad1:
+input--data
+output--gcc_bad1_output (the same with the given file "output")
+
+
+
+
+ioc good1: 
+input--2.java
+output--ioc_good1_output (content is the same with given file "output.2")
+
+ioc good2: 
+input--5.java
+output--ioc_good2_output (content is the same with given file "output.3")
+
+ioc good3: 
+input--bigOut.txt
+output--ioc_good3_output (content is the same with given file "output.4")
+
+ioc bad1:
+input--data
+output--trapped
+lower.c:122:16: runtime error: value lost in conversion of '128' from 'int' (int) to 'char' (char)
+make: *** [ioc_run_bad1] Illegal instruction (core dumped)
+
+
+
+
+
+
+
+
+
+
+
+

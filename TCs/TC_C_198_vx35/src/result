@@ -1,0 +1,46 @@
+gcc_good1:
+output:the same with the given
+Content-type: text/plain; charset=us-ascii
+Content-length: 32
+Restricted operations permitted
+
+
+gcc_good2:
+output: the same with the given
+Content-type: text/plain; charset=us-ascii
+Content-length: 32
+Restricted operations permitted
+
+gcc_bad1:
+output: the same with the given
+Content-type: text/plain; charset=us-ascii
+Content-length: 32
+Privileged operations permitted
+
+gcc_bad2: This case seems a good case
+output: the same with the given
+Root is a reserved user name
+
+
+ioc_good1:trapped
+unihan.c:72:27: runtime error: value lost in conversion of '65534' from 'unsigned int' (unsigned int) to 'short' (short)
+make: *** [ioc_run_good1] Illegal instruction (core dumped)
+
+
+ioc_good2:trapped:
+unihan.c:72:27: runtime error: value lost in conversion of '65534' from 'unsigned int' (unsigned int) to 'short' (short)
+make: *** [ioc_run_good1] Illegal instruction (core dumped)
+
+ioc_bad1:trapped
+unihan.c:72:27: runtime error: value lost in conversion of '65534' from 'unsigned int' (unsigned int) to 'short' (short)
+make: *** [ioc_run_good1] Illegal instruction (core dumped)
+
+
+ioc_bad2:trapped
+unihan.c:72:27: runtime error: value lost in conversion of '65534' from 'unsigned int' (unsigned int) to 'short' (short)
+make: *** [ioc_run_good1] Illegal instruction (core dumped)
+
+
+
+
+

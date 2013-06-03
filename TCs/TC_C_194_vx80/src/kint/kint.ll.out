@@ -1,0 +1,17 @@
+---
+bug: usub
+status: sat
+stack: 
+ - /Users/qiqi/Study/number_handling/TCs/TC_C_194_vx80/src/kint/CountLinesServer.c:206:12
+---
+bug: array
+status: sat
+stack: 
+ - /Users/qiqi/Study/number_handling/TCs/TC_C_194_vx80/src/kint/CountLinesServer.c:206:12
+---
+bug: array
+status: sat
+stack: 
+ - /usr/include/ctype.h:175:10
+ - /usr/include/ctype.h:286:10
+ - /Users/qiqi/Study/number_handling/TCs/TC_C_194_vx80/src/kint/CountLinesServer.c:250:8

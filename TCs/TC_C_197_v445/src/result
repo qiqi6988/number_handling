@@ -1,0 +1,37 @@
+gcc good1: 
+input--6
+output--2 (same with given)
+
+gcc good2: 
+input--(-2)
+output--30 (same with given)
+
+gcc bad1:
+input--(-6)
+output--no result, infinitely running (same with given)
+
+gcc_bad2:
+input--87313
+output--2 (different with given "139" and segment fault)
+
+
+ioc good1: 
+input--6
+output--2 (same with given)
+
+ioc good2: 
+input--(-2)
+output--30 (same with given)
+
+ioc bad1:
+input--(-6)
+output--trapped as below:
+recaman.c:88:8: runtime error: value lost in conversion of '137438953470' from 'long long' (long long) to 'int' (int)
+make: *** [ioc_run_bad1] Illegal instruction (core dumped)
+
+
+ioc_bad2:
+input--87313
+output--2 (different with given "139" and segment fault)
+
+

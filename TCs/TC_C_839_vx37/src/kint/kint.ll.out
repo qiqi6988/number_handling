@@ -1,0 +1,5 @@
+---
+bug: umul
+status: sat
+stack: 
+ - /Users/qiqi/Study/number_handling/TCs/TC_C_839_vx37/src/kint/main.c:137:2

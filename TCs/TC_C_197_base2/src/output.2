@@ -1,0 +1,251 @@
+import java.applet.applet;
+import java.awt.button;
+import java.awt.font;
+import java.awt.fontmetrics;
+import java.awt.image;
+import java.awt.color;
+import java.awt.borderlayout;
+import java.awt.graphics;
+import java.awt.event.actionlistener;
+import java.awt.event.actionevent;
+import java.util.*;
+import java.io.*;
+import java.net.*;
+
+public class grt extends applet implements actionlistener
+{
+	// comment
+	
+	button button1;
+	button button2;
+	font f = new font("timesroman", font.bold, 12);
+	fontmetrics fm = getfontmetrics(f);
+	string tree = "", parent = "";
+	int test = 0, n, currnodes = 0, maxy = 50, p, q;
+	int[] treearray;
+	int[] parentarray;
+	int[] xnode;
+	int[] ynode;
+	int[] previousarray;
+	int[] prev_pararray;
+	graphics g;
+
+	/**
+	comment
+	*/
+	
+	public void init()
+	{
+		string s = getparameter("size");
+		if (s == null)
+		{
+			n = 6;
+		}
+		else n = integer.parseint(s);
+		treearray = new int[n];
+		parentarray = new int[n];
+		previousarray = new int[n];
+		prev_pararray = new int[n];
+		xnode = new int[n];
+		ynode = new int[n];
+
+		setlayout( new borderlayout( 0, 0 ));
+		setbackground( new color( 255, 255, 255 ));
+		addnotify();
+
+		button2 = new button( "previous" );
+		button2.setbounds( (getinsets().left + 30), (getinsets().top + 30), 100, 20 );
+		add(button2);
+
+		button1 = new button( "next" );
+		button1.setbounds( (getinsets().left + (getsize().width-130)), (getinsets().top + 30), 100, 20 );
+		add(button1);
+	
+		button1.addactionlistener(this);
+		button2.addactionlistener(this);
+
+		initialtree();
+
+	}
+
+	public void initialtree()
+	{
+		int i, x = 1;
+		for (i=0; i<n; i++)
+		{
+			tree = tree + x + " ";
+			treearray[i] = x;
+			previousarray[i] = x;
+			prev_pararray[i] = x-2;
+			parentarray[i] = x-2;
+			parent = parent + parentarray[i] + " ";
+			x++;
+		}
+		vertices();
+	}
+
+	public void nexttree()
+	{
+		int i;
+		tree = "";
+		parent = "";
+		for (i=(n-1); i>=0; i--)
+		{
+			if (treearray[i] > 2)
+			{
+				p = i;
+				break;
+			}
+		}
+		q = parentarray[p];
+		stop();
+		for (i=0; i<(p); i++)
+		{
+			previousarray[i] = treearray[i];
+			prev_pararray[i] = parentarray[i];
+			tree = tree + treearray[i] + " ";
+			parent = parent + parentarray[i] + " ";
+		}
+		for (i=(p); i<(n); i++)
+		{
+			previousarray[i] = treearray[i];
+			prev_pararray[i] = parentarray[i];
+			treearray[i]= treearray[i-(p-q)];
+			if ((i-p)%(p-q)==0)
+			{
+				parentarray[i] = parentarray[i-(p-q)];
+			}
+			else
+			{
+				parentarray[i] =  parentarray[i-(p-q)]+(p-q);
+			}
+			tree = tree + treearray[i] + " ";
+			parent = parent + parentarray[i] + " ";
+		}
+		currnodes=0;
+		vertices();
+		repaint();
+	}
+	
+	public void previoustree()
+	{
+		int i;
+		tree = "";
+		parent = "";
+		for (i=0; i<n; i++)
+		{
+			treearray[i] = previousarray[i];
+			parentarray[i] = prev_pararray[i];
+			tree = tree + treearray[i] + " ";
+			parent = parent + parentarray[i] + " ";
+		}
+		currnodes=0;
+		vertices();
+		repaint();		
+	}
+	
+	public void testtree()
+	{
+		int i;
+		for(i=(n-1); i>=1; i--)
+		{
+			if(treearray[i]!=2)
+			{
+				test = 1;
+				break;
+			}
+		}
+	}
+	
+	public void vertices()
+	{
+		int i, a=treearray[0], b=treearray[0];
+		int x=((getsize().width) / 2), y=110;
+		addnode(x,y);
+		for(i=1; i<n; i++)
+		{
+			a = treearray[i];
+			if(a==b)
+			{
+				x = x + 25;
+				addnode(x, y);
+			}
+			else
+			{
+				if(a<b)
+				{
+					x = x + ((b-a)+1)*25;
+					y = y - (b-a)*25;
+					addnode(x,y);	
+				}
+				else
+				{
+					x = x - 25;
+					y = y + 25;
+					if(y>maxy)
+					{
+						maxy = y;
+					}
+					addnode(x, y);
+				}
+			}
+			b = a;
+		}
+	}
+
+	public void addnode(int x, int y)
+	{
+		
+		xnode[currnodes] = x;
+		ynode[currnodes] = y;
+		currnodes++;
+		
+	}
+	
+	public void paint(graphics g)
+	{
+		g.setcolor(color.black);
+		g.setfont(f);
+		string title = "the rooted trees with " + n + " vertices are:";
+		int xstart_title = (getsize().width - fm.stringwidth(title)) / 2;
+		g.drawstring(title, xstart_title, 75);
+		int xstart_tree = (getsize().width - fm.stringwidth(tree)) / 2;
+		g.drawstring(tree, xstart_tree, 90);
+		for(int i=0; i<currnodes; i++)
+		{
+			g.filloval(xnode[i] - 5, ynode[i] - 5, 10, 10);
+		}
+		for(int i=1; i<currnodes; i++)
+		{
+			if(treearray[i]>treearray[i-1])
+			{
+				g.drawline(xnode[i-1], ynode[i-1], xnode[i], ynode[i]);
+			}
+			if(treearray[i]<=treearray[i-1])
+			{
+				g.drawline(xnode[parentarray[i]], ynode[parentarray[i]], xnode[i], ynode[i]);
+			}
+		}
+	}
+
+	public void actionperformed(actionevent e)
+	{
+		// test comment
+		/*  */
+		
+		object source = e.getsource();
+		if(source == button1)
+		{
+			testtree();
+			if (test==1)
+			{
+				test = 0;
+				nexttree();
+			}
+		}
+		if(source == button2)
+		{
+			previoustree();
+		}
+	}
+}

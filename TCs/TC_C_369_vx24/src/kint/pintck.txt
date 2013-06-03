@@ -1,0 +1,19 @@
+---
+bug: usub
+status: sat
+stack: 
+ - /Users/qiqi/Study/number_handling/TCs/TC_C_369_vx24/src/kint/server.c:440:3
+ - /Users/qiqi/Study/number_handling/TCs/TC_C_369_vx24/src/kint/server.c:469:11
+ - /Users/qiqi/Study/number_handling/TCs/TC_C_369_vx24/src/kint/server.c:402:22
+---
+bug: usub
+status: sat
+stack: 
+ - /Users/qiqi/Study/number_handling/TCs/TC_C_369_vx24/src/kint/server.c:440:3
+ - /Users/qiqi/Study/number_handling/TCs/TC_C_369_vx24/src/kint/server.c:469:11
+ - /Users/qiqi/Study/number_handling/TCs/TC_C_369_vx24/src/kint/server.c:403:22
+---
+bug: usub
+status: sat
+stack: 
+ - /Users/qiqi/Study/number_handling/TCs/TC_C_369_vx24/src/kint/server.c:440:3

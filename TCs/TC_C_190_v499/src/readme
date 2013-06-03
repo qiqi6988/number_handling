@@ -1,0 +1,20 @@
+commands:
+make gcc
+make ioc
+make ioc_notrap
+
+gcc_run_good
+gcc_run_better
+gcc_run_bad1
+gcc_run_bad2
+
+
+ioc_run_good
+ioc_run_better
+ioc_run_bad1
+ioc_run_bad2
+
+ioc_notrap_run_good
+ioc_notrap_run_better
+ioc_notrap_run_bad1
+ioc_notrap_run_bad2

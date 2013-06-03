@@ -1,0 +1,18 @@
+countlines.c:267:42: runtime error: value lost in conversion of '-10' from 'int' (int) to 'unsigned int' (unsigned int)
+Illegal instruction (core dumped)
+
+Analysis:
+ if ( place > max_line_length )
+           {
+             remaining_chars = ( unsigned int ) (max_line_length - place);      //STONESOUP:CROSSOVER_POINT
+             // next condition should be impossible!!
+             if ( remaining_chars > 0 ) //STONESOUP:TRIGGER_POINT
+               {
+                 while(1);      //STONESOUP:CONTROL_FLOW:INFINITE_LOOP
+               }
+             printf( "remaining_chars: %u\n", remaining_chars );
+           }
+
+In the above codes "remaining_chars = ( unsigned int ) (max_line_length - place);", the max_line_length assigned with the user input is relatively smaller than one of the lines in the input file, thus, "max_line_length - place" is a negative number, and when it converted to unsigned int, it becomes very large(at least a positive number). Thus it will go into the while loop below, and never returns.
+
+To solve it, change the line of "remaining_chars = ( unsigned int ) (max_line_length - place);" to "remaining_chars=place-max_line_length; and change to type of remaining_chars to int from unsigned int"

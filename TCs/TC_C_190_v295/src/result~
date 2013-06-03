@@ -1,0 +1,31 @@
+gcc good1: 
+input--5.java
+output--RESULT: 27 (same with given)
+
+gcc bad1:
+input--2.java
+output--no result, infinitely running (same with given)
+
+gcc_bad2:
+input--hamlet.txt
+output--noresult, infinitely running (same with given)
+
+ioc good1:
+input--5.java
+output--RESULT: 27 (same with given)
+
+ioc bad1:
+input--2.java
+output--trapped as below
+countlines.c:270:18: runtime error: signed addition overflow [ expr = 'unary ++', lval = (sint8) 127, rval = (sint8) 1 ]
+make: *** [ioc_run_bad1] Illegal instruction (core dumped)
+
+ioc bad2:
+input--hamlet.txt
+output--trapped as below
+countlines.c:270:18: runtime error: signed addition overflow [ expr = 'unary ++', lval = (sint8) 127, rval = (sint8) 1 ]
+make: *** [ioc_run_bad2] Illegal instruction (core dumped)
+
+
+
+

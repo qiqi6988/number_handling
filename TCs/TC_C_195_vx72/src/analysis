@@ -1,0 +1,12 @@
+recaman.c:59:18: runtime error: value lost in conversion of '-9' from 'int' (int) to 'unsigned int' (unsigned int)
+
+code:
+value[place] = (int)strtol(buf, &end, 10); 
+strtol returns type long int , and when truncated into int type, the most significant 32 bits will be disgarded, which results in the value to be -9, and when -9 is assigned to unsigned int value[place], it becomes a very large number.
+
+Line 70: recaman(value[place]) 
+in recaman:  sequence = (int *)calloc((sequenceNo + 1), sizeof(int))
+as value[place] is too large, no such a large space in heap could be allocated. If it is large but doesn't exceed the largest space that can be allocated, it will occupy a large number of space in the memory. This should not be allowed.
+
+solution:
+limit the value of value[place] first. and judge whether it is larger than an upper bound(according to the largest space that is allowed to allocated to a user).

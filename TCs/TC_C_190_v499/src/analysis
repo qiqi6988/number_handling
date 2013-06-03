@@ -1,0 +1,32 @@
+error code:
+countlines.c:265:18: runtime error: signed addition overflow [ expr = 'unary ++', lval = (sint8) 127, rval = (sint8) 1 ]
+make: *** [ioc_run_bad1] Illegal instruction (core dumped)
+
+reason:
+in the following code,lines_of_code is of type 'char', and the program doesn't check whether it is larger than the largest number of char, thus when it overflow, it becomes 0, and then it will go into the while loop below and run infinitely.
+ if (line_already_counted == 0)
+                        {
+                                lines_of_code++;
+                                line_already_counted = 1;
+                        }
+
+
+ if ( lines_of_code < 0 )        //STONESOUP:CROSSOVER_POINT
+                {
+                   while ( 0 == 0 )     //STONESOUP:TRIGGER_POINT       // TECHNICAL_IMPACT:DOS:Resource_consumption
+                   { lines_of_code++;printf("loop"); }
+                }
+
+
+solution:
+add check section:
+if (line_already_counted == 0)
+                        {
+				if(lines_of_code<127)
+				{
+                                lines_of_code++;
+				}
+				else{exit(1);}
+                                line_already_counted = 1;
+                        }
+

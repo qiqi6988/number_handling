@@ -1,0 +1,13 @@
+---
+bug: ssub
+status: sat
+stack: 
+ - /Users/qiqi/Study/number_handling/TCs/TC_C_197_base2/src/kint/lower.c:175:3
+---
+bug: array
+status: sat
+stack: 
+ - /usr/include/ctype.h:175:10
+ - /usr/include/ctype.h:292:10
+ - /Users/qiqi/Study/number_handling/TCs/TC_C_197_base2/src/kint/lower.c:119:9
+ - /Users/qiqi/Study/number_handling/TCs/TC_C_197_base2/src/kint/lower.c:195:10

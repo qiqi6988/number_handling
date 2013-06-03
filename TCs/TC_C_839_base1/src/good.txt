@@ -1,0 +1,6 @@
+This is a command-line program, so all inputs are described as sample command-
+line invocations.
+
+$ cat some_file.txt | ./head -n -100 > 100_line_file.txt
+$ yes | ./head > 10_lines_of_y.txt
+$ ./head -n 1000 some_file.txt > 1000_line_file.txt

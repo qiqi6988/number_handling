@@ -1,0 +1,18 @@
+gcc_good:
+output:
+22Out.bin(the same with the given)
+
+gcc_bad:
+output:
+9Out.bin(the same with the given)
+
+ioc_good:
+output:
+22Out.bin(the same with the given)
+
+ioc_bad:trapped
+output:
+9Out.bin (different)
+recaman.c:59:18: runtime error: value lost in conversion of '-9' from 'int' (int) to 'unsigned int' (unsigned int)
+make: *** [ioc_run] Illegal instruction (core dumped)
+

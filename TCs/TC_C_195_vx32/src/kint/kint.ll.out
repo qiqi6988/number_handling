@@ -1,0 +1,27 @@
+---
+bug: uadd
+status: sat
+stack: 
+ - /Users/qiqi/Study/number_handling/TCs/TC_C_195_vx32/src/kint/query.c:30:9
+---
+bug: uadd
+status: sat
+stack: 
+ - /Users/qiqi/Study/number_handling/TCs/TC_C_195_vx32/src/kint/query.c:30:9
+---
+bug: uadd
+status: sat
+stack: 
+ - /Users/qiqi/Study/number_handling/TCs/TC_C_195_vx32/src/kint/query.c:32:13
+---
+bug: uadd
+status: sat
+stack: 
+ - /Users/qiqi/Study/number_handling/TCs/TC_C_195_vx32/src/kint/query.c:109:23
+---
+bug: array
+status: sat
+stack: 
+ - /usr/include/ctype.h:175:10
+ - /usr/include/ctype.h:262:10
+ - /Users/qiqi/Study/number_handling/TCs/TC_C_195_vx32/src/kint/query.c:129:12

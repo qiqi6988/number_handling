@@ -1,0 +1,24 @@
+commands:
+make gcc
+make ioc
+make ioc_notrap
+
+make gcc_run_good1
+make client_good1(run in another terminal)
+make gcc_good1_check
+
+
+make gcc_run_bad1
+make client_bad1
+make gcc_bad1_check
+
+make ioc_run_good1
+make client_good1
+make ioc_good1_check
+
+
+make ioc_run_bad1
+make client_bad1
+make ioc_bad1_check
+
+make ioc_notrap_run_bad1

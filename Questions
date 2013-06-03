@@ -1,0 +1,24 @@
+195_vx72: I checked the INT_MAX and LONG_MAX on my laptop, and turns out that they are the same, both 32 bits.
+
+For solution, we could choose many places to add check. where is the best?
+
+can't run jclient2.exe for 196_vx73
+
+no outputdata for 196_vx73
+
+
+190_v295:which solution to choose?
+
+
+190_v499:
+source file has some errors, gcc can build it while ioc can't.
+
+197_base2:
+seems something wrong with the io-specification(base2 or base1?)
+even good ones don't match for the output files
+
+197_v445:
+can't use flag -fioc-signed when build with ioc, or will cause error
+bad2 have different results
+
+

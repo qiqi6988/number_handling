@@ -1,0 +1,44 @@
+IOC detect an error, it is not the error to the point, although it is indeed the error.
+main.c:127:46: runtime error: left shift into or beyond sign bit [ expr = '<<', lval = (sint32) -128, rval = (sint32) 8 ]
+
+its_per_sample = (header[34]) | (header[35]<<8);
+
+
+solution:
+its_per_sample = (header[34]) | 0x00;
+
+
+Error in this case:
+main.c:135:27: runtime error: value lost in conversion of '-32752' from 'int16_t' (short) to 'unsigned int' (unsigned int)
+main.c:135:44: runtime error: unsigned multiplication overflow [ expr = '*', lval = (uint32) 4294934544, rval = (uint32) 8000 ]
+
+1.in line 125: bits_per_sample = get16Value(bps_array, 2); 
+bits_per_sample is of type short, and the crafted input data make it an negative number(-32752);
+2.in line 135:total_bytes_per_second = *bits_per_sample * sample_rate / 8;
+sample_rate and total_bites_per_second are of size_t(unsigned), therefore the negative bits_per_sample will be converted to a large unsigned first, which should make total_bytes_per_second, but here there is a multiplication overlow, although it still makes total_bytes_per_second very large.
+3. in the following for loop, it will output a large amount of data into the output file:
+for (loop_count = 0; total_bytes_per_second > 0; loop_count++) { // STONESOUP:TRIGGER_POINT // STONESOUP:CONTROL_FLOW:LOOP_COMPLEXITY_TEST
+                memcpy(buffer, input, BUFSIZ);
+                if (total_bytes_per_second <= BUFSIZ) {
+                        wt = fwrite(buffer, total_bytes_per_second, 1, out);
+                        total_bytes_per_second = 0;
+                } else {
+                        wt = fwrite(buffer, BUFSIZ, 1, out);
+                        total_bytes_per_second = total_bytes_per_second - BUFSIZ;
+                }
+
+solution:
+in line 130:
+ if (*bits_per_sample > MAXBITS_PER_SAMPLE) { // STONESOUP:CROSSOVER_POINT
+                fprintf(stderr, "Maximum bits per sample is %d\n", MAXBITS_PER_SAMPLE);
+                exit(EXIT_FAILURE);
+        }
+
+add the following:
+if (*bits_per_sample<0)
+{exit(1);}
+
+
+
+
+

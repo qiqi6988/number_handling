@@ -1,0 +1,58 @@
+
+makefile:
+cd /src
+bash ./make.sh
+This will generate the executable from gcc and ioc, countlines and coutlines_ioc
+
+
+
+Run(gcc):
+Good1: the same , output is 27
+./countlines ../testData/1.java 2
+
+Good2: the same, output is 0
+./countlines ../testData/2.java 1
+
+Bad1: the same, no output
+ ./countlines ../testData/1.java 3
+
+Bad2: the same , no output
+./countlines ../testData/hamlet.txt
+
+Run(ioc):
+Good1: the same , output is 27
+./countlines_ioc ../testData/1.java 2
+
+Good2: the same, output is 0
+./countlines_ioc ../testData/2.java 1
+
+Bad1: (It is signed to unsigned error, not unsigned to signed error as in ppt)
+ ./countlines_ioc ../testData/1.java 3
+output:
+countlines.c:73:40: runtime error: value lost in conversion of '-1' from 'int' (int) to 'unsigned char' (unsigned char)
+Illegal instruction (core dumped)
+
+Bad2: 
+./countlines_ioc ../testData/hamlet.txt
+output:
+countlines.c:73:40: runtime error: value lost in conversion of '-1' from 'int' (int) to 'unsigned char' (unsigned char)
+Illegal instruction (core dumped)
+
+
+
+Run(ioc_notrap):
+Good1: the same , output is 27
+./countlines_ioc_notrap ../testData/1.java 2
+
+Good2: the same, output is 0
+./countlines_ioc_notrap ../testData/2.java 1
+
+Bad1:  no output, not stop
+ ./countlines_ioc_notrap ../testData/1.java 3
+countlines.c:73:40: runtime error: value lost in conversion of '-1' from 'int' (int) to 'unsigned char' (unsigned char)
+
+
+Bad2: no output, not stop
+./countlines_ioc_notrap ../testData/hamlet.txt
+countlines.c:73:40: runtime error: value lost in conversion of '-1' from 'int' (int) to 'unsigned char' (unsigned char)
+

@@ -1,0 +1,10 @@
+---
+bug: sadd
+status: sat
+stack: 
+ - /Users/qiqi/Study/number_handling/TCs/TC_C_839_base1/src/kint/head.c:98:2
+---
+bug: sadd
+status: sat
+stack: 
+ - /Users/qiqi/Study/number_handling/TCs/TC_C_839_base1/src/kint/head.c:98:2

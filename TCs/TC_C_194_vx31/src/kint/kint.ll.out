@@ -1,0 +1,28 @@
+---
+bug: uadd
+status: sat
+stack: 
+ - /Users/qiqi/Study/number_handling/TCs/TC_C_194_vx31/src/kint/query.c:30:9
+---
+bug: uadd
+status: sat
+stack: 
+ - /Users/qiqi/Study/number_handling/TCs/TC_C_194_vx31/src/kint/query.c:30:9
+---
+bug: uadd
+status: sat
+stack: 
+ - /Users/qiqi/Study/number_handling/TCs/TC_C_194_vx31/src/kint/query.c:32:13
+---
+bug: uadd
+status: sat
+stack: 
+ - /Users/qiqi/Study/number_handling/TCs/TC_C_194_vx31/src/kint/query.c:122:23
+---
+bug: array
+status: sat
+stack: 
+ - /usr/include/ctype.h:175:10
+ - /usr/include/ctype.h:231:10
+ - /Users/qiqi/Study/number_handling/TCs/TC_C_194_vx31/src/kint/query.c:99:7
+ - /Users/qiqi/Study/number_handling/TCs/TC_C_194_vx31/src/kint/query.c:125:9
